@@ -96,6 +96,7 @@
 <body>
 
     <div class="game-container">
+        
         <h1 class="title text-center mb-4">Passé Composé Master 🇫🇷</h1>
         <p class="text-center text-gray-600 mb-6">Master your **être**, **avoir**, irregulars, negation, and agreement!</p>
 
@@ -391,15 +392,13 @@
             // Update display
             document.getElementById('current-q').textContent = currentQuestionIndex + 1;
             document.getElementById('sentence').innerHTML = q.sentenceTemplate;
-            
-            let info = q.isEtre ? 'Auxiliaire: <span class="text-blue-900 font-bold">ÊTRE</span>' : 'Auxiliaire: <span class="text-blue-900 font-bold">AVOIR</span>';
+            document.getElementById('verb-info').innerHTML = q.isEtre ? 'Auxiliaire: <span class="text-blue-900 font-bold">ÊTRE</span>' : 'Auxiliaire: <span class="text-blue-900 font-bold">AVOIR</span>';
             if (q.isNegative) {
-                info += ' | Forme: <span class="text-red-600 font-bold">NÉGATIVE</span>';
+                document.getElementById('verb-info').innerHTML += ' | Forme: <span class="text-red-600 font-bold">NÉGATIVE</span>';
             }
-            if (q.isEtre && q.agreementSuffix) {
-                info += ` | <span class="text-red-600 font-bold">ACCORD REQUIS: -${q.agreementSuffix}</span>`;
+            if (q.isEtre) {
+                document.getElementById('verb-info').innerHTML += ` | <span class="text-red-600 font-bold">ACCORD REQUIS: -${q.agreementSuffix || 'e, s, or es'}</span>`;
             }
-            document.getElementById('verb-info').innerHTML = info;
         }
 
         /**
@@ -445,14 +444,14 @@
                 `;
             } else {
                 feedbackBox.classList.add('incorrect');
-                let auxError = isAuxCorrect ? '' : `<p class="mt-2">**Auxiliary Error:** Expected: **${q.expectedAuxInput}**</p>`;
-                let ppError = isPPCorrect ? '' : `<p> **Participle Error:** Expected: **${q.expectedPPInput}**</p>`;
+                let auxError = isAuxCorrect ? '' : `<p class="mt-2">**Auxiliary Error:** You missed the correct auxiliary form, reflexive pronoun, or the 'ne' placement. Expected Auxiliary Part: **${q.expectedAuxInput}**</p>`;
+                let ppError = isPPCorrect ? '' : `<p> **Participle Error:** You missed the base past participle form, or the required agreement/negation ('pas'). Expected Participle Part: **${q.expectedPPInput}**</p>`;
 
                 feedbackBox.innerHTML = `
                     <p>❌ **INCORRECT.** Study the rule and try the next one.</p>
                     ${auxError}
                     ${ppError}
-                    <p class="mt-2 text-sm">The complete conjugation is: **${q.fullAnswer}**.</p>
+                    <p class="mt-2 text-sm">The complete correct conjugation is: **${q.fullAnswer}**.</p>
                 `;
             }
 
