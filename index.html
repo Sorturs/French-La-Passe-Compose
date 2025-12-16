@@ -140,6 +140,10 @@
 
                 <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">4. Dr. Mrs. Vandelkamp Verbs (Uses Être)</h3>
                 <p>aller, venir, entrer, sortir, monter, descendre, arriver, partir, passer, retourner, rester, naître, mourir, tomber, devenir, revenir. *Plus all reflexive verbs.*</p>
+                
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">5. About Accents (Aigu, Grave, Cédille)</h3>
+                <p>Accents like **é** (e acute) are essential for correct spelling and pronunciation in French. In this game, all French words are written with their proper accents (e.g., *Passé Composé*, *Être*, *entré*). The browser handles these characters automatically because the file uses `<meta charset="UTF-8">`.</p>
+
 
             </div>
         </details>
@@ -185,18 +189,20 @@
         }
 
         // Level 1: Participle Agreement (Être only)
-        // stem: M/S Participle; correctEnding: agreement suffix: "" (M/S), "e" (F/S), "s" (M/P), "es" (F/P)
+        // stem: Base of the M/S Participle (e.g., 'entr', 'sorti'); baseSuffix: The ending of the M/S Participle (e.g., 'é', '' for 'i'/'u' ending)
+        // correctEnding: agreement suffix: "" (M/S), "e" (F/S), "s" (M/P), "es" (F/P)
         const level1Questions = [
-            { subject: "Je (F)", verb: "entrer", stem: "entré", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
-            { subject: "Tu (M)", verb: "sortir", stem: "sorti", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
-            { subject: "Elle", verb: "aller", stem: "allé", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
-            { subject: "Nous (M)", verb: "venir", stem: "venu", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
-            { subject: "Ils", verb: "monter", stem: "monté", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
-            { subject: "Vous (F, pl.)", verb: "rester", stem: "resté", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
-            { subject: "Il", verb: "tomber", stem: "tombé", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
-            { subject: "Les filles", verb: "partir", stem: "parti", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
-            { subject: "Elles", verb: "descendre", stem: "descendu", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
-            { subject: "Sophie et Marc", verb: "revenir", stem: "revenu", aux: "Être", correctEnding: "s", hint: "Masculine plural (mixed gender). Needs +s." },
+            // Note on Accents: The 'é' is part of the base M/S participle, split here for visual clarity in Level 1 logic.
+            { subject: "Je (F)", verb: "entrer", stem: "entr", baseSuffix: "é", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
+            { subject: "Tu (M)", verb: "sortir", stem: "sorti", baseSuffix: "", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
+            { subject: "Elle", verb: "aller", stem: "all", baseSuffix: "é", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
+            { subject: "Nous (M)", verb: "venir", stem: "venu", baseSuffix: "", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
+            { subject: "Ils", verb: "monter", stem: "mont", baseSuffix: "é", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
+            { subject: "Vous (F, pl.)", verb: "rester", stem: "rest", baseSuffix: "é", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Il", verb: "tomber", stem: "tomb", baseSuffix: "é", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
+            { subject: "Les filles", verb: "partir", stem: "parti", baseSuffix: "", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Elles", verb: "descendre", stem: "descendu", baseSuffix: "", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Sophie et Marc", verb: "revenir", stem: "revenu", baseSuffix: "", aux: "Être", correctEnding: "s", hint: "Masculine plural (mixed gender). Needs +s." },
         ];
 
         // Level 2: Auxiliary Conjugation (Être or Avoir)
@@ -213,28 +219,28 @@
             { subject: "Je (M)", verb: "partir", aux: "Être", conjugation: "suis", participle: "parti", rule: "Partir is a movement verb (Dr. Mrs. Vandelkamp)." },
         ];
         
-        // Level 3: Participle Formation (M/S Participle)
+        // Level 3: Participle Formation (M/S Participle) - RULES UPDATED TO HIGHLIGHT ACCENTS
         const level3Questions = [
-            { verb: "parler", correct: "parlé", incorrect: ["parlai", "parli"], rule: "Regular -ER verb: take off -ER, add -é." },
-            { verb: "finir", correct: "fini", incorrect: ["finit", "finu"], rule: "Regular -IR verb: take off -IR, add -i." },
-            { verb: "vendre", correct: "vendu", incorrect: ["vendé", "vendis"], rule: "Regular -RE verb: take off -RE, add -u." },
-            { verb: "faire", correct: "fait", incorrect: ["fé", "faireu"], rule: "Irregular verb: You must memorize its shape (faire -> fait)." },
+            { verb: "parler", correct: "parlé", incorrect: ["parlai", "parli"], rule: "Regular -ER verb: Take off -ER, add -é. The E-acute accent (é) is mandatory." },
+            { verb: "finir", correct: "fini", incorrect: ["finit", "finu"], rule: "Regular -IR verb: Take off -IR, add -i." },
+            { verb: "vendre", correct: "vendu", incorrect: ["vendé", "vendis"], rule: "Regular -RE verb: Take off -RE, add -u." },
+            { verb: "faire", correct: "fait", incorrect: ["fé", "faireu"], rule: "Irregular verb: You must memorize its shape (faire -> fait). Notice the spelling change." },
             { verb: "avoir", correct: "eu", incorrect: ["ayé", "avé"], rule: "Irregular verb: You must memorize its shape (avoir -> eu)." },
-            { verb: "être", correct: "été", incorrect: ["étu", "êté"], rule: "Irregular verb: You must memorize its shape (être -> été)." },
+            { verb: "être", correct: "été", incorrect: ["étu", "êté"], rule: "Irregular verb: You must memorize its shape (être -> été). Note the mandatory E-acute accent (é)." },
             { verb: "voir", correct: "vu", incorrect: ["vois", "voyu"], rule: "Irregular verb: You must memorize its shape (voir -> vu)." },
             { verb: "prendre", correct: "pris", incorrect: ["prenu", "prendi"], rule: "Irregular verb: You must memorize its shape (prendre -> pris)." },
             { verb: "lire", correct: "lu", incorrect: ["lit", "lis"], rule: "Irregular verb: You must memorize its shape (lire -> lu)." },
             { verb: "boire", correct: "bu", incorrect: ["boi", "bus"], rule: "Irregular verb: You must memorize its shape (boire -> bu)." },
         ];
 
-        // Level 4: Tense Transformation (PC to Present)
+        // Level 4: Tense Transformation (PC to Present) - RULES SLIGHTLY ADJUSTED FOR ACCENT FOCUS
         const level4Questions = [
             { subject: "Nous", verb: "entrer", pcSentence: "Nous sommes entrés.", correctPresent: "entrons", incorrect: ["sommes", "entres", "entrent"], rule: "In the Present tense, 'entrer' for 'Nous' is 'entrons'." },
             { subject: "Tu", verb: "parler", pcSentence: "Tu as parlé.", correctPresent: "parles", incorrect: ["a", "parle", "parlez"], rule: "In the Present tense, 'parler' for 'Tu' is 'parles'." },
             { subject: "Il", verb: "finir", pcSentence: "Il a fini.", correctPresent: "finit", incorrect: ["a", "finis", "finir"], rule: "In the Present tense, 'finir' for 'Il' is 'finit'." },
             { subject: "Elles", verb: "vendre", pcSentence: "Elles ont vendu.", correctPresent: "vendent", incorrect: ["ont", "vendons", "vendez"], rule: "In the Present tense, 'vendre' for 'Elles' is 'vendent'." },
             { subject: "Je (M)", verb: "faire", pcSentence: "J'ai fait.", correctPresent: "fais", incorrect: ["fait", "faisons", "ai"], rule: "In the Present tense, 'faire' for 'Je' is 'fais'." },
-            { subject: "Vous", verb: "voir", pcSentence: "Vous avez vu.", correctPresent: "voyez", incorrect: ["vois", "voyons", "avez"], rule: "In the Present tense, 'voir' for 'Vous' is 'voyez'." },
+            { subject: "Vous", verb: "voir", pcSentence: "Vous avez vu.", correctPresent: "voyez", incorrect: ["vois", "voyons", "avez"], rule: "In the Present tense, 'voir' for 'Vous' is 'voyez'. (Note the spelling change: voir -> voy-)" },
         ];
 
         // Suffixes for Level 1 Agreement
@@ -375,10 +381,10 @@
             gameSentence.innerHTML = `
                 <span id="subjectDisplay">${q.subject}</span>
                 <span class="text-indigo-600 font-bold">${auxiliary}</span>
-                <span id="stemDisplay" class="font-normal">${q.stem}</span>
+                <span id="stemDisplay" class="font-normal">${q.stem}${q.baseSuffix}</span>
                 <span id="suffixPlaceholder" class="suffix-placeholder inline-block h-8 bg-yellow-300 rounded-md animate-pulse align-top"></span>
             `;
-            hintDisplay.textContent = `(Infinitive: ${q.verb} | M/S Participle: ${q.stem})`;
+            hintDisplay.textContent = `(Infinitive: ${q.verb} | M/S Participle: ${q.stem}${q.baseSuffix})`;
 
             let currentChoices = allEndings.map(e => e.ending);
             shuffle(currentChoices).forEach(ending => {
@@ -394,7 +400,8 @@
         function checkLevel1Answer(question, selectedEnding, clickedButton, auxiliary) {
             Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
             const isCorrect = selectedEnding === question.correctEnding;
-            const correctFullParticiple = question.stem + question.correctEnding;
+            // Combine stem, baseSuffix, and agreement ending for the full participle
+            const correctFullParticiple = question.stem + question.baseSuffix + question.correctEnding;
             totalQuestions++;
             const correctRule = allEndings.find(e => e.ending === question.correctEnding).rule;
             const suffixPlaceholder = document.getElementById('suffixPlaceholder');
@@ -414,7 +421,8 @@
             } else {
                 feedbackTitle.textContent = "❌ Incorrect. Review the rule.";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
-                const yourParticiple = question.stem + selectedEnding;
+                // Combine stem, baseSuffix, and selected ending for the user's participle
+                const yourParticiple = question.stem + question.baseSuffix + selectedEnding;
                 feedbackText.textContent = `You chose the suffix '${selectedEnding === "" ? "no suffix" : selectedEnding}', making the participle '${yourParticiple}'. The correct participle is '${correctFullParticiple}'.`;
                 ruleText.innerHTML = `**The Rule:** The participle must match the subject with Être. The correct agreement for **${question.subject}** is **${correctRule.toLowerCase()}**, so you needed the **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'** ending.`;
                 clickedButton.classList.add('bg-red-500', 'text-white');
