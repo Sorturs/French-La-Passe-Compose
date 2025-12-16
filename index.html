@@ -1,501 +1,217 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passé Composé Master</title>
+    <title>Le Participe Puzzle (Passé Composé)</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter Font -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue background */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 20px;
+            background-color: #f7f7f7;
         }
-        .game-container {
-            max-width: 700px;
-            width: 100%;
-            background-color: #ffffff;
-            border: 2px solid #3b82f6; /* Blue border */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            border-radius: 16px;
-            padding: 30px;
-            margin-top: 50px;
-        }
-        .title {
-            color: #1e40af; /* Darker Blue */
-            font-size: 2.25rem;
-            font-weight: 700;
-        }
-        input {
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            padding: 10px;
-            transition: all 0.2s;
-        }
-        input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
-            outline: none;
-        }
-        button {
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        #check-button {
-            background-color: #10b981; /* Emerald Green */
-            color: white;
-            font-weight: 600;
-            padding: 12px;
-            border-radius: 8px;
-        }
-        #check-button:hover {
-            background-color: #059669;
-        }
-        .feedback {
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-weight: 600;
-            border-left: 5px solid;
-        }
-        .correct {
-            background-color: #d1fae5; 
-            color: #065f46; 
-            border-color: #10b981;
-        }
-        .incorrect {
-            background-color: #fee2e2; 
-            color: #991b1b; 
-            border-color: #ef4444;
-        }
-        .question-card {
-            min-height: 120px;
-            background-color: #f9fafb;
-            border: 1px solid #e5e7eb;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .instruction-box {
-            background-color: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-            color: #1e40af;
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen p-4 md:p-8 flex items-center justify-center">
 
-    <div class="game-container">
+    <div class="w-full max-w-2xl bg-white rounded-xl p-6 md:p-10 card-shadow">
         
-        <h1 class="title text-center mb-4">Passé Composé Master 🇫🇷</h1>
-        <p class="text-center text-gray-600 mb-6">Master your **être**, **avoir**, irregulars, negation, and agreement!</p>
+        <h1 class="text-3xl font-bold text-indigo-700 mb-2">Le Participe Puzzle</h1>
+        <p class="text-gray-600 mb-6">Pratiquez l'accord du participe passé avec l'auxiliaire **Être**.</p>
 
-        <!-- Instructions -->
-        <div class="instruction-box">
-            <p><strong>Instructions:</strong> Conjugate the verb using the two input fields.</p>
-            <ul class="list-disc ml-5 mt-2">
-                <li>**Auxiliaire Field:** Enter the auxiliary verb (*suis*, *a*, *avons*, etc.), including the reflexive pronoun (*me*, *t'*, *se*) AND the **ne** if negative.</li>
-                <li>**Participe Field:** Enter the past participle (*allé*, *vu*, *fait*, etc.), including the correct **agreement** (*-e, -s, -es*) AND **pas** if negative (for *avoir* verbs).</li>
-            </ul>
-        </div>
-
-        <!-- Score and Progress -->
-        <div class="flex justify-between items-center mb-6 text-lg font-semibold text-gray-700">
-            <div>Score: <span id="score">0</span></div>
-            <div>Question: <span id="current-q">1</span> / <span id="total-q">10</span></div>
-        </div>
-
-        <!-- Question Display -->
-        <div id="question-card" class="question-card">
-            <p class="text-lg font-medium text-gray-800 mb-4">Conjugate the verb:</p>
-            <p id="sentence" class="text-2xl font-bold text-blue-900 mb-3"></p>
-            <p id="verb-info" class="text-base text-blue-700 italic"></p>
-        </div>
-
-        <!-- Input Area -->
-        <div class="space-y-4">
-            <div class="input-group">
-                <label for="auxiliary-input" class="block text-sm font-medium text-gray-700">Auxiliaire (+ Refl. Pronoun / Ne...):</label>
-                <input type="text" id="auxiliary-input" placeholder="Ex: ai, sommes, me suis, n'ai" class="mt-1 block w-full">
+        <!-- Game Area -->
+        <div id="questionContainer" class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg mb-6">
+            <p class="text-sm font-semibold text-indigo-700 mb-2">Sentence to Complete:</p>
+            <div class="text-2xl font-semibold text-gray-800">
+                <span id="subjectDisplay"></span>
+                <span class="text-indigo-600 font-bold" id="auxiliaryDisplay"></span>
+                <span id="stemDisplay"></span>
+                <span class="inline-block w-20 h-8 bg-yellow-300 rounded-md animate-pulse"></span>
             </div>
-            <div class="input-group">
-                <label for="participle-input" class="block text-sm font-medium text-gray-700">Participe Passé (+ Accord / ...pas):</label>
-                <input type="text" id="participle-input" placeholder="Ex: mangé, sorti(e), venu(e)s, pas vu" class="mt-1 block w-full">
-            </div>
-            <button id="check-button" onclick="checkAnswer()" class="w-full">Vérifier (Check)</button>
+            <p id="hintDisplay" class="text-xs text-gray-500 mt-2 italic"></p>
         </div>
-        
-        <!-- Feedback -->
-        <div id="feedback-message" class="feedback hidden"></div>
 
-        <!-- Hint Box -->
-        <div id="hint-box" class="instruction-box hidden">
-            <p class="font-bold mb-1">HINT:</p>
-            <p id="hint-text"></p>
+        <!-- Choice Buttons -->
+        <div id="choicesContainer" class="grid grid-cols-2 gap-3 mb-6">
+            <!-- Buttons will be injected here -->
         </div>
-    </div>
 
-    <!-- Final Score Modal -->
-    <div id="final-modal" class="modal">
-        <div class="modal-content">
-            <h2 class="text-3xl font-bold text-blue-600 mb-4">Unit Test Prep Complete! 🚀</h2>
-            <p class="text-xl text-gray-700 mb-6">Review your score and try again to master all concepts.</p>
-            <p class="text-4xl font-extrabold text-gray-900 mb-6">Final Score: <span id="final-score"></span> / 10</p>
-            <button onclick="restartGame()" class="py-3 px-6 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">Restart Test</button>
+        <!-- Feedback Area -->
+        <div id="feedbackContainer" class="p-4 rounded-lg transition duration-300 ease-in-out hidden">
+            <p class="font-bold text-lg mb-2" id="feedbackTitle"></p>
+            <p id="feedbackText" class="text-sm"></p>
+            <p id="ruleText" class="text-xs mt-2 italic font-medium"></p>
         </div>
+
+        <!-- Score/Next Button -->
+        <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+            <div id="scoreDisplay" class="text-gray-600 font-semibold">Score: 0/0</div>
+            <button id="nextButton" onclick="nextQuestion()" class="px-6 py-2 bg-indigo-500 text-white font-bold rounded-lg hover:bg-indigo-600 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" disabled>
+                Next Question &rarr;
+            </button>
+        </div>
+
     </div>
 
     <script>
-        // Utility function to clean and normalize input for robust comparison
-        function normalizeInput(str) {
-            if (!str) return '';
-            // 1. Lowercase
-            str = str.toLowerCase().trim();
-            // 2. Remove common French accents (important for matching 'est' vs 'e' vs 'é')
-            str = str.replace(/à/g, 'a').replace(/é|è|ê|ë/g, 'e').replace(/î|ï/g, 'i').replace(/ô|ö/g, 'o').replace(/ù|ü/g, 'u').replace(/ç/g, 'c');
-            // 3. Remove spaces and only allow letters and apostrophes for core comparison
-            return str.replace(/[^a-z']/g, ''); 
-        }
-
-        // Data derived from the user's uploaded images
-        // Dr. & Mrs. P. VANDERTRAMP verbs (use ÊTRE)
-        const ETRE_VERBS = {
-            'devenir': { pp: 'devenu', verb_type: 'VANDERTRAMP' }, 'revenir': { pp: 'revenu', verb_type: 'VANDERTRAMP' },
-            'monter': { pp: 'monté', verb_type: 'VANDERTRAMP' }, 'rester': { pp: 'resté', verb_type: 'VANDERTRAMP' },
-            'sortir': { pp: 'sorti', verb_type: 'VANDERTRAMP' }, 'venir': { pp: 'venu', verb_type: 'VANDERTRAMP' },
-            'aller': { pp: 'allé', verb_type: 'VANDERTRAMP' }, 'naître': { pp: 'né', verb_type: 'VANDERTRAMP' },
-            'descendre': { pp: 'descendu', verb_type: 'VANDERTRAMP' }, 'entrer': { pp: 'entré', verb_type: 'VANDERTRAMP' },
-            'rentrer': { pp: 'rentré', verb_type: 'VANDERTRAMP' }, 'tomber': { pp: 'tombé', verb_type: 'VANDERTRAMP' },
-            'retourner': { pp: 'retourné', verb_type: 'VANDERTRAMP' }, 'arriver': { pp: 'arrivé', verb_type: 'VANDERTRAMP' },
-            'mourir': { pp: 'mort', verb_type: 'VANDERTRAMP' }, 'partir': { pp: 'parti', verb_type: 'VANDERTRAMP' },
-            // Reflexive Verbs (use ÊTRE + agreement)
-            'se laver': { pp: 'lavé', verb_type: 'Reflexive' }, 'se dépêcher': { pp: 'dépêché', verb_type: 'Reflexive' },
-            's\'habiller': { pp: 'habillé', verb_type: 'Reflexive' }, 'se promener': { pp: 'promené', verb_type: 'Reflexive' },
-            'se coucher': { pp: 'couché', verb_type: 'Reflexive' }, 'se réveiller': { pp: 'réveillé', verb_type: 'Reflexive' } 
-        };
-
-        // Irregular verbs using AVOIR (from the tables)
-        const AVOIR_IRREGULAR_VERBS = {
-            'avoir': { pp: 'eu', group: '-u' }, 'boire': { pp: 'bu', group: '-u' }, 'connaître': { pp: 'connu', group: '-u' }, 'croire': { pp: 'cru', group: '-u' },
-            'devoir': { pp: 'dû', group: '-u' }, 'lire': { pp: 'lu', group: '-u' }, 'pleuvoir': { pp: 'plu', group: '-u' }, 'pouvoir': { pp: 'pu', group: '-u' },
-            'recevoir': { pp: 'reçu', group: '-u' }, 'savoir': { pp: 'su', group: '-u' }, 'voir': { pp: 'vu', group: '-u' }, 'vouloir': { pp: 'voulu', group: '-u' },
-            'courir': { pp: 'couru', group: '-u' }, 'mettre': { pp: 'mis', group: '-is' }, 'prendre': { pp: 'pris', group: '-is' },
-            'conduire': { pp: 'conduit', group: '-it' }, 'dire': { pp: 'dit', group: '-it' }, 'écrire': { pp: 'écrit', group: '-it' },
-            'être': { pp: 'été', group: 'Other' }, 'faire': { pp: 'fait', group: 'Other' }, 'offrir': { pp: 'offert', group: 'Other' }, 'ouvrir': { pp: 'ouvert', group: 'Other' },
-            'vendre': { pp: 'vendu', group: 'Regular -re' }, 'manger': { pp: 'mangé', group: 'Regular -er' }, 'finir': { pp: 'fini', group: 'Regular -ir' },
-            'apprendre': { pp: 'appris', group: '-is' }, 'assister': { pp: 'assisté', group: 'Regular -er' }, 'choisir': { pp: 'choisi', group: 'Regular -ir' } 
-        };
-
-        // Pronouns and their characteristics (Subject, Pronoun, Aux Avoir, Aux Être, Agreement Suffix)
-        const PRONOUNS = [
-            { subject: 'Je (masc)', pronoun: 'je', aux_avoir: 'ai', aux_etre: 'suis', agreement: '' },
-            { subject: 'Je (fém)', pronoun: 'je', aux_avoir: 'ai', aux_etre: 'suis', agreement: 'e' },
-            { subject: 'Tu (masc)', pronoun: 'tu', aux_avoir: 'as', aux_etre: 'es', agreement: '' },
-            { subject: 'Tu (fém)', pronoun: 'tu', aux_avoir: 'as', aux_etre: 'es', agreement: 'e' },
-            { subject: 'Il / Le garçon', pronoun: 'il', aux_avoir: 'a', aux_etre: 'est', agreement: '' },
-            { subject: 'Elle / Maman', pronoun: 'elle', aux_avoir: 'a', aux_etre: 'est', agreement: 'e' },
-            { subject: 'Nous (mixte)', pronoun: 'nous', aux_avoir: 'avons', aux_etre: 'sommes', agreement: 's' },
-            { subject: 'Nous (fém)', pronoun: 'nous', aux_avoir: 'avons', aux_etre: 'sommes', agreement: 'es' },
-            { subject: 'Vous (mixte)', pronoun: 'vous', aux_avoir: 'avez', aux_etre: 'êtes', agreement: 's' },
-            { subject: 'Vous (fém)', pronoun: 'vous', aux_avoir: 'avez', aux_etre: 'êtes', agreement: 'es' },
-            { subject: 'Ils / Les garçons', pronoun: 'ils', aux_avoir: 'ont', aux_etre: 'sont', agreement: 's' },
-            { subject: 'Elles / Les filles', pronoun: 'elles', aux_avoir: 'ont', aux_etre: 'sont', agreement: 'es' },
+        // --- Data Structure for Passé Composé Practice ---
+        const questions = [
+            // Format: [Subject (Singular/Plural, Masculine/Feminine), Verb Stem, Past Participle Ending, Hint]
+            // Gender/Number Encoding: M/F (Singular), MP/FP (Plural)
+            { subject: "Je (F)", verb: "entrer", stem: "entr", correctEnding: "ée", hint: "Feminine singular past participle." },
+            { subject: "Tu (M)", verb: "sortir", stem: "sort", correctEnding: "i", hint: "Masculine singular past participle." },
+            { subject: "Elle", verb: "aller", stem: "all", correctEnding: "ée", hint: "Feminine singular past participle." },
+            { subject: "Nous (M)", verb: "venir", stem: "ven", correctEnding: "us", hint: "Masculine plural past participle." },
+            { subject: "Ils", verb: "monter", stem: "mont", correctEnding: "és", hint: "Masculine plural past participle." },
+            { subject: "Vous (F, pl.)", verb: "rester", stem: "rest", correctEnding: "ées", hint: "Feminine plural past participle." },
+            { subject: "Il", verb: "tomber", stem: "tomb", correctEnding: "é", hint: "Masculine singular past participle." },
+            { subject: "Les filles", verb: "partir", stem: "part", correctEnding: "ies", hint: "Feminine plural past participle." },
+            { subject: "Les garçons", verb: "naître", stem: "n", correctEnding: "és", hint: "Masculine plural past participle." },
+            { subject: "Sophie et Marc", verb: "revenir", stem: "reven", correctEnding: "us", hint: "Masculine plural (mixed gender) past participle." },
         ];
 
-        // Combine all verbs
-        const ALL_VERBS = { ...ETRE_VERBS, ...AVOIR_IRREGULAR_VERBS };
+        // The four possible endings for the participe passé when using ÊTRE.
+        const allEndings = [
+            { ending: "é", rule: "Masculin Singulier (M/S)" },
+            { ending: "ée", rule: "Féminin Singulier (F/S). Requires adding -e." },
+            { ending: "és", rule: "Masculin Pluriel (M/P). Requires adding -s." },
+            { ending: "ées", rule: "Féminin Pluriel (F/P). Requires adding -e and -s." }
+        ];
 
-        const QUESTION_COUNT = 10;
-        let questions = [];
-        let currentQuestionIndex = 0;
+        let currentQuestionIndex = -1;
         let score = 0;
-        let isChecking = false;
+        let totalQuestions = 0;
 
-        /**
-         * Selects a random set of questions from the verb pool.
-         */
-        function initializeQuestions() {
-            questions = [];
-            const verbInfinitives = Object.keys(ALL_VERBS);
+        // --- DOM Elements ---
+        const subjectDisplay = document.getElementById('subjectDisplay');
+        const auxiliaryDisplay = document.getElementById('auxiliaryDisplay');
+        const stemDisplay = document.getElementById('stemDisplay');
+        const hintDisplay = document.getElementById('hintDisplay');
+        const choicesContainer = document.getElementById('choicesContainer');
+        const feedbackContainer = document.getElementById('feedbackContainer');
+        const feedbackTitle = document.getElementById('feedbackTitle');
+        const feedbackText = document.getElementById('feedbackText');
+        const ruleText = document.getElementById('ruleText');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        const nextButton = document.getElementById('nextButton');
 
-            for (let i = 0; i < QUESTION_COUNT; i++) {
-                let verb, verbData, pronounData;
-                let isNegative = Math.random() < 0.3; // 30% chance of negation
-
-                // Weighted random selection: ~35% Avoir, ~35% VANDERTRAMP, ~30% Reflexive
-                let targetType = Math.random();
-
-                const filteredVerbs = verbInfinitives.filter(v => {
-                    const data = ALL_VERBS[v];
-                    if (targetType < 0.35 && !data.verb_type.includes('VANDERTRAMP') && !data.verb_type.includes('Reflexive')) return true;
-                    if (targetType >= 0.35 && targetType < 0.7 && data.verb_type === 'VANDERTRAMP') return true;
-                    if (targetType >= 0.7 && data.verb_type === 'Reflexive') return true;
-                    return false;
-                });
-                
-                if (filteredVerbs.length === 0) { // Fallback if filtered list is empty (shouldn't happen with this large list)
-                    verb = verbInfinitives[Math.floor(Math.random() * verbInfinitives.length)];
-                } else {
-                    verb = filteredVerbs[Math.floor(Math.random() * filteredVerbs.length)];
-                }
-
-                verbData = ALL_VERBS[verb];
-
-                // Select a pronoun/subject
-                let possiblePronouns = PRONOUNS;
-                if (verb.startsWith('se ') || verb.startsWith('s\'')) {
-                    // For reflexive, exclude non-personal subjects like 'Le garçon'
-                    possiblePronouns = PRONOUNS.filter(p => p.pronoun.length <= 4); 
-                }
-                pronounData = possiblePronouns[Math.floor(Math.random() * possiblePronouns.length)];
-
-                const sentenceTemplate = `... (le verbe ${verb}) ...`;
-                
-                questions.push(generateCorrectAnswer(pronounData, verb, verbData, sentenceTemplate, isNegative));
+        // Helper to shuffle an array (Fisher-Yates)
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
-            currentQuestionIndex = 0;
-            score = 0;
-            updateScoreDisplay();
-            loadQuestion();
+            return array;
         }
 
-        /**
-         * Calculates the correct answer for the question.
-         */
-        function generateCorrectAnswer(pronounData, verb, verbData, sentenceTemplate, isNegative) {
-            const isEtre = verbData.verb_type.includes('VANDERTRAMP') || verbData.verb_type.includes('Reflexive');
-            const aux = isEtre ? pronounData.aux_etre : pronounData.aux_avoir;
-            const pp = verbData.pp;
-            let verbInfinitive = verb;
+        // --- Game Logic ---
 
-            // --- 1. Determine Reflexive Pronoun ---
-            let reflexivePrefix = '';
-            let subjectPronoun = pronounData.pronoun;
-
-            if (isEtre && verbData.verb_type.includes('Reflexive')) {
-                // Determine reflexive pronoun (me/te/se/nous/vous/se)
-                switch (subjectPronoun) {
-                    case 'je': reflexivePrefix = 'me '; break;
-                    case 'tu': reflexivePrefix = 'te '; break;
-                    case 'il': case 'elle': reflexivePrefix = 'se '; break;
-                    case 'nous': reflexivePrefix = 'nous '; break;
-                    case 'vous': reflexivePrefix = 'vous '; break;
-                    case 'ils': case 'elles': reflexivePrefix = 'se '; break;
-                }
-                
-                // Handle vowel contraction for the reflexive pronoun (m', t', s')
-                if (aux.match(/^[aeiou]/i)) {
-                    if (reflexivePrefix === 'me ') reflexivePrefix = 'm\'';
-                    else if (reflexivePrefix === 'te ') reflexivePrefix = 't\'';
-                    else if (reflexivePrefix === 'se ') reflexivePrefix = 's\'';
-                }
-            }
-
-            // --- 2. Determine Agreement ---
-            const agreement = isEtre ? pronounData.agreement : '';
-
-            // --- 3. Construct Auxiliary Input (Box 1) ---
-            let expectedAuxInput;
-            
-            if (isNegative) {
-                // Negation: ne [refl] [aux]
-                let nePrefix = (aux.match(/^[aeiou]/i) && !reflexivePrefix.endsWith('\'')) ? 'n\'' : 'ne ';
-                
-                if (reflexivePrefix.endsWith('\'')) {
-                     // If reflexive is contracted (m', t', s'), 'ne' usually precedes it: "ne m'es..."
-                    expectedAuxInput = `ne ${reflexivePrefix}${aux}`;
-                } else {
-                    // Combine ne, refl, and aux, handling contraction for ne
-                    expectedAuxInput = `${nePrefix}${reflexivePrefix}${aux}`;
-                }
-                expectedAuxInput = expectedAuxInput.replace(/\s+/g, ' ').trim();
-
-            } else {
-                // Affirmative: [refl] [aux]
-                expectedAuxInput = `${reflexivePrefix}${aux}`.replace(/\s+/g, ' ').trim();
-            }
-
-
-            // --- 4. Construct Participle Input (Box 2) ---
-            let expectedPPInput = pp + agreement;
-
-            if (isNegative && !isEtre) {
-                // AVOIR negation places 'pas' after the PP (in the context of the user's worksheet structure)
-                expectedPPInput = pp + ' pas';
-            }
-            // For ÊTRE negation, 'pas' is technically before the PP, but we assume user puts PP+Agreement in box 2
-
-            // --- 5. Construct Full Answer (for Feedback) ---
-            let fullAnswer;
-            if (isNegative) {
-                // The full conjugated phrase (Subject + Aux field + pas [PP field])
-                const auxPart = expectedAuxInput.replace('ne ', '').replace('n\'', ''); // just the aux part for 'pas' placement
-                
-                if (isEtre) {
-                    // ne [refl] [aux] pas [pp][agreement]
-                    fullAnswer = `${expectedAuxInput} pas ${pp}${agreement}`;
-                } else {
-                    // ne [aux] pas [pp]
-                    fullAnswer = `${expectedAuxInput} pas ${pp}`; 
-                }
-            } else {
-                // [refl] [aux] [pp][agreement]
-                fullAnswer = `${expectedAuxInput} ${pp}${agreement}`;
-            }
-            fullAnswer = fullAnswer.replace(/\s+/g, ' ').trim();
-
-            return {
-                subject: pronounData.subject,
-                verb: verbInfinitive,
-                sentenceTemplate: `**${pronounData.subject}** ${sentenceTemplate}`,
-                isEtre: isEtre,
-                isNegative: isNegative,
-                hint: `Auxiliary: **${isEtre ? 'ÊTRE' : 'AVOIR'}**. ${isEtre ? `Check for Agreement (suffix: -${agreement || 'none'}) and the reflexive pronoun.` : 'Check for the irregular participle.'}`,
-                expectedAuxInput: expectedAuxInput,
-                expectedPP: pp, // Base PP
-                expectedPPInput: expectedPPInput,
-                fullAnswer: fullAnswer,
-                agreementSuffix: agreement
-            };
-        }
-
-        /**
-         * Loads the current question into the display.
-         */
         function loadQuestion() {
-            if (currentQuestionIndex >= QUESTION_COUNT) {
-                showFinalScoreModal();
-                return;
-            }
-
+            // Move to the next question, or loop back if all were answered
+            currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
             const q = questions[currentQuestionIndex];
+            
+            // 1. Reset UI
+            feedbackContainer.classList.add('hidden');
+            nextButton.disabled = true;
+            choicesContainer.innerHTML = '';
+            
+            // 2. Determine auxiliary verb conjugation (simulated for clarity)
+            let auxiliary = 'est'; // Default singular
+            if (q.subject.includes('Nous')) auxiliary = 'sommes';
+            else if (q.subject.includes('Vous')) auxiliary = 'êtes';
+            else if (q.subject.includes('Ils') || q.subject.includes('Les')) auxiliary = 'sont';
+            else if (q.subject.includes('Je') || q.subject.includes('Tu') || q.subject.includes('Il') || q.subject.includes('Elle')) auxiliary = 'est';
 
-            // Reset inputs and feedback
-            document.getElementById('auxiliary-input').value = '';
-            document.getElementById('participle-input').value = '';
-            document.getElementById('feedback-message').classList.add('hidden');
-            document.getElementById('hint-box').classList.add('hidden');
-            document.getElementById('check-button').disabled = false;
-            document.getElementById('check-button').textContent = 'Vérifier (Check)';
-            isChecking = false;
+            // 3. Update Question Display
+            subjectDisplay.textContent = q.subject + ' ';
+            auxiliaryDisplay.textContent = auxiliary + ' ';
+            stemDisplay.textContent = q.stem;
+            hintDisplay.textContent = `(Infinitive: ${q.verb})`;
 
-            // Update display
-            document.getElementById('current-q').textContent = currentQuestionIndex + 1;
-            document.getElementById('sentence').innerHTML = q.sentenceTemplate;
-            document.getElementById('verb-info').innerHTML = q.isEtre ? 'Auxiliaire: <span class="text-blue-900 font-bold">ÊTRE</span>' : 'Auxiliaire: <span class="text-blue-900 font-bold">AVOIR</span>';
-            if (q.isNegative) {
-                document.getElementById('verb-info').innerHTML += ' | Forme: <span class="text-red-600 font-bold">NÉGATIVE</span>';
-            }
-            if (q.isEtre) {
-                document.getElementById('verb-info').innerHTML += ` | <span class="text-red-600 font-bold">ACCORD REQUIS: -${q.agreementSuffix || 'e, s, or es'}</span>`;
-            }
+            // 4. Generate shuffled choices
+            const correctChoice = q.correctEnding;
+            let currentChoices = allEndings.map(e => e.ending); // Get all endings
+            
+            // Ensure choices are unique and include the correct answer
+            // Since we use all four possibilities, we just shuffle them
+            shuffle(currentChoices).forEach(ending => {
+                const button = document.createElement('button');
+                button.textContent = ending;
+                button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
+                button.onclick = () => checkAnswer(q, ending, button);
+                button.dataset.ending = ending;
+                choicesContainer.appendChild(button);
+            });
         }
 
-        /**
-         * Compares the user's input with the correct answer.
-         */
-        function checkAnswer() {
-            if (isChecking) {
-                currentQuestionIndex++;
-                loadQuestion();
-                return;
-            }
+        function checkAnswer(question, selectedEnding, clickedButton) {
+            // Disable all buttons after selection
+            Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
 
-            const q = questions[currentQuestionIndex];
-            const rawAuxInput = document.getElementById('auxiliary-input').value.trim();
-            const rawPPInput = document.getElementById('participle-input').value.trim();
+            const isCorrect = selectedEnding === question.correctEnding;
+            const fullVerb = question.stem + selectedEnding;
+            const correctFullVerb = question.stem + question.correctEnding;
 
-            const normalizedAuxInput = normalizeInput(rawAuxInput);
-            const normalizedPPInput = normalizeInput(rawPPInput);
+            totalQuestions++;
 
-            // --- 1. Check Auxiliary Box ---
-            const expectedNormalizedAux = normalizeInput(q.expectedAuxInput);
-            let isAuxCorrect = normalizedAuxInput === expectedNormalizedAux;
-
-            // --- 2. Check Participle Box ---
-            const expectedNormalizedPP = normalizeInput(q.expectedPPInput);
-            let isPPCorrect = normalizedPPInput === expectedNormalizedPP;
-
-
-            // --- 3. Display Feedback ---
-            let isCorrect = isAuxCorrect && isPPCorrect;
-            const feedbackBox = document.getElementById('feedback-message');
-            const hintBox = document.getElementById('hint-box');
-            feedbackBox.classList.remove('hidden', 'correct', 'incorrect');
-            hintBox.classList.remove('hidden');
-            document.getElementById('hint-text').innerHTML = q.hint;
+            // Find the rule for the correct answer
+            const correctRule = allEndings.find(e => e.ending === question.correctEnding).rule;
 
             if (isCorrect) {
                 score++;
-                feedbackBox.classList.add('correct');
-                feedbackBox.innerHTML = `
-                    <p>✅ **CORRECT!**</p>
-                    <p>Conjugation: **${q.fullAnswer}**</p>
-                `;
+                feedbackTitle.textContent = "✅ C'est correct! Bien joué.";
+                feedbackTitle.className = "font-bold text-lg mb-2 text-green-700";
+                feedbackContainer.classList.replace('bg-red-100', 'bg-green-100');
+                feedbackContainer.classList.replace('border-red-500', 'border-green-500');
+                feedbackText.textContent = `The full verb is: ${question.subject} ${auxiliaryDisplay.textContent.trim()} ${correctFullVerb}.`;
+                ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding}'**.`;
+                
+                clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
+                stemDisplay.textContent = question.stem + question.correctEnding;
             } else {
-                feedbackBox.classList.add('incorrect');
-                let auxError = isAuxCorrect ? '' : `<p class="mt-2">**Auxiliary Error:** You missed the correct auxiliary form, reflexive pronoun, or the 'ne' placement. Expected Auxiliary Part: **${q.expectedAuxInput}**</p>`;
-                let ppError = isPPCorrect ? '' : `<p> **Participle Error:** You missed the base past participle form, or the required agreement/negation ('pas'). Expected Participle Part: **${q.expectedPPInput}**</p>`;
+                feedbackTitle.textContent = "❌ Incorrect. Revoyons la règle.";
+                feedbackTitle.className = "font-bold text-lg mb-2 text-red-700";
+                feedbackContainer.classList.replace('bg-green-100', 'bg-red-100');
+                feedbackContainer.classList.replace('border-green-500', 'border-red-500');
+                
+                feedbackText.textContent = `You chose '${selectedEnding}', making the word '${fullVerb}'. The correct word is '${correctFullVerb}'.`;
+                ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding}'**.`;
 
-                feedbackBox.innerHTML = `
-                    <p>❌ **INCORRECT.** Study the rule and try the next one.</p>
-                    ${auxError}
-                    ${ppError}
-                    <p class="mt-2 text-sm">The complete correct conjugation is: **${q.fullAnswer}**.</p>
-                `;
+                clickedButton.classList.add('bg-red-500', 'text-white');
+                // Highlight the correct answer
+                const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.ending === question.correctEnding);
+                if (correctButton) {
+                    correctButton.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    correctButton.classList.add('bg-green-200', 'text-green-800', 'border-2', 'border-green-500');
+                }
+                stemDisplay.textContent = question.stem + question.correctEnding;
             }
-
-            // --- 4. Prepare for Next Step ---
-            document.getElementById('check-button').textContent = 'Continuer (Continue)';
-            document.getElementById('check-button').disabled = false;
-            isChecking = true;
+            
+            // Show feedback
+            feedbackContainer.classList.remove('hidden');
+            nextButton.disabled = false;
             updateScoreDisplay();
         }
 
-        /**
-         * Updates the score and total question count display.
-         */
         function updateScoreDisplay() {
-            document.getElementById('score').textContent = score;
-            document.getElementById('total-q').textContent = QUESTION_COUNT;
+            scoreDisplay.textContent = `Score: ${score}/${totalQuestions}`;
         }
 
-        /**
-         * Shows the final score modal.
-         */
-        function showFinalScoreModal() {
-            document.getElementById('final-score').textContent = score;
-            document.getElementById('final-modal').classList.add('active');
+        function nextQuestion() {
+            loadQuestion();
         }
 
-        /**
-         * Restarts the game.
-         */
-        function restartGame() {
-            document.getElementById('final-modal').classList.remove('active');
-            initializeQuestions();
-        }
+        // --- Initialization ---
+        shuffle(questions); // Randomize the question order
+        loadQuestion(); // Start the first question
 
-        // Initial game start
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeQuestions();
-            document.getElementById('auxiliary-input').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') checkAnswer();
-            });
-            document.getElementById('participle-input').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') checkAnswer();
-            });
-        });
     </script>
 </body>
 </html>
