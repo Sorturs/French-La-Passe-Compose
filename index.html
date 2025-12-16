@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le Participe Puzzle (Passé Composé)</title>
+    <title>Passé Composé Mastery: Être & Avoir</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter Font -->
@@ -42,85 +42,69 @@
 
     <div class="w-full max-w-2xl bg-white rounded-xl p-6 md:p-10 card-shadow">
         
-        <h1 class="text-3xl font-bold text-indigo-700 mb-2">Le Participe Puzzle</h1>
-        <p class="text-gray-600 mb-6">Pratiquez l'accord du participe passé avec l'auxiliaire **Être**.</p>
+        <h1 class="text-3xl font-bold text-indigo-700 mb-2">Passé Composé Mastery</h1>
+        <p class="text-gray-600 mb-6" id="levelDescription">Level 1: Participle Agreement (Être only)</p>
+
+        <!-- LEVEL TOGGLE -->
+        <div class="flex justify-center space-x-4 mb-6">
+            <button id="level1Button" onclick="setGameMode(1)" class="px-4 py-2 bg-indigo-600 text-white font-bold rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Level 1: Participle Agreement
+            </button>
+            <button id="level2Button" onclick="setGameMode(2)" class="px-4 py-2 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Level 2: Auxiliary Conjugation
+            </button>
+        </div>
 
         <!-- CHEAT SHEET/REFERENCE SECTION -->
         <details class="mb-6 rounded-lg border border-indigo-300 bg-indigo-50/50 shadow-inner">
             <summary class="p-4 cursor-pointer font-bold text-indigo-700 hover:bg-indigo-100/70 rounded-lg transition duration-150">
-                📚 Review: Passé Composé (Être) Cheat Sheet
+                📚 Review: Passé Composé (Être & Avoir) Cheat Sheet
             </summary>
             <div class="p-4 pt-0 text-sm text-gray-700 max-h-96 overflow-y-auto cheat-sheet">
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">1. The List: Verbs That Use Être (Dr. Mrs. Vandelkamp)</h3>
-                <p>Only these movement/state verbs use **Être**. All others use **Avoir**.</p>
-                
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">1. Auxiliary Conjugation (Level 2 Focus)</h3>
+                <p>Choose **Être** for Dr. Mrs. Vandelkamp verbs, **Avoir** for all others. Conjugate the correct auxiliary in the present tense:</p>
+
                 <table class="text-xs">
                     <thead>
                         <tr>
-                            <th>Infinitive</th>
-                            <th>M/S Participle</th>
-                            <th>Meaning</th>
+                            <th>Subject</th>
+                            <th>Être (to be)</th>
+                            <th>Avoir (to have)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>**aller**</td><td>allé</td><td>to go</td></tr>
-                        <tr><td>**venir**</td><td>venu</td><td>to come</td></tr>
-                        <tr><td>**entrer**</td><td>entré</td><td>to enter</td></tr>
-                        <tr><td>**sortir**</td><td>sorti</td><td>to go out, to leave</td></tr>
-                        <tr><td>**monter**</td><td>monté</td><td>to go up</td></tr>
-                        <tr><td>**descendre**</td><td>descendu</td><td>to go down</td></tr>
-                        <tr><td>**arriver**</td><td>arrivé</td><td>to arrive</td></tr>
-                        <tr><td>**partir**</td><td>parti</td><td>to leave</td></tr>
-                        <tr><td>**passer**</td><td>passé</td><td>to pass (by)</td></tr>
-                        <tr><td>**retourner**</td><td>retourné</td><td>to return, to go back</td></tr>
-                        <tr><td>**rester**</td><td>resté</td><td>to stay, to remain</td></tr>
-                        <tr><td>**naître**</td><td>né</td><td>to be born</td></tr>
-                        <tr><td>**mourir**</td><td>mort</td><td>to die</td></tr>
-                        <tr><td>**tomber**</td><td>tombé</td><td>to fall</td></tr>
-                        <tr><td>**devenir**</td><td>devenu</td><td>to become</td></tr>
-                        <tr><td>**revenir**</td><td>revenu</td><td>to come back</td></tr>
-                        <tr><td colspan="3">***Plus all reflexive verbs***</td></tr>
+                        <tr><td>**Je**</td><td>suis</td><td>ai</td></tr>
+                        <tr><td>**Tu**</td><td>es</td><td>as</td></tr>
+                        <tr><td>**Il/Elle/On**</td><td>est</td><td>a</td></tr>
+                        <tr><td>**Nous**</td><td>sommes</td><td>avons</td></tr>
+                        <tr><td>**Vous**</td><td>êtes</td><td>avez</td></tr>
+                        <tr><td>**Ils/Elles**</td><td>sont</td><td>ont</td></tr>
                     </tbody>
                 </table>
-
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">2. The Rule: Past Participle Agreement (L'Accord)</h3>
-                <p>If you use **Être**, the participle **MUST** agree with the subject.</p>
+                
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">2. Participle Agreement (Level 1 Focus)</h3>
+                <p>Agreement **ONLY** happens with **Être**. The participle must agree with the subject.</p>
 
                 <table class="text-xs">
                     <thead>
                         <tr>
                             <th>Subject Type</th>
                             <th>Suffix</th>
-                            <th>Example (entré)</th>
+                            <th>Rule</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>**Masculin Singulier (M/S)**</td><td>**(No suffix)**</td><td>**entré**</td></tr>
-                        <tr><td>**Féminin Singulier (F/S)**</td><td>**-e**</td><td>**entrée**</td></tr>
-                        <tr><td>**Masculin Pluriel (M/P)**</td><td>**-s**</td><td>**entrés**</td></tr>
-                        <tr><td>**Féminin Pluriel (F/P)**</td><td>**-es**</td><td>**entrées**</td></tr>
+                        <tr><td>**Masculin Singulier (M/S)**</td><td>**(No suffix)**</td><td>Basic form.</td></tr>
+                        <tr><td>**Féminin Singulier (F/S)**</td><td>**-e**</td><td>Add **-e**.</td></tr>
+                        <tr><td>**Masculin Pluriel (M/P)**</td><td>**-s**</td><td>Add **-s**.</td></tr>
+                        <tr><td>**Féminin Pluriel (F/P)**</td><td>**-es**</td><td>Add **-e** and **-s**.</td></tr>
                     </tbody>
                 </table>
-                <p class="mt-2 text-xs font-bold text-red-600">⚠️ Critical Rule: A mixed group (e.g., Sophie et Marc) is always Masculine Plural (-s).</p>
+                <p class="mt-2 text-xs font-bold text-red-600">⚠️ Mixed groups are always M/P (-s).</p>
                 
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">3. The Auxiliary Verb: Être Conjugation</h3>
-                
-                <table class="text-xs">
-                    <thead>
-                        <tr>
-                            <th>Subject</th>
-                            <th>Être Conjugation</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>**Je**</td><td>**suis**</td></tr>
-                        <tr><td>**Tu**</td><td>**es**</td></tr>
-                        <tr><td>**Il/Elle/On**</td><td>**est**</td></tr>
-                        <tr><td>**Nous**</td><td>**sommes**</td></tr>
-                        <tr><td>**Vous**</td><td>**êtes**</td></tr>
-                        <tr><td>**Ils/Elles**</td><td>**sont**</td></tr>
-                    </tbody>
-                </table>
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">3. Dr. Mrs. Vandelkamp Verbs (Uses Être)</h3>
+                <p>aller, venir, entrer, sortir, monter, descendre, arriver, partir, passer, retourner, rester, naître, mourir, tomber, devenir, revenir. *Plus all reflexive verbs.*</p>
+
             </div>
         </details>
         <!-- END CHEAT SHEET/REFERENCE SECTION -->
@@ -128,12 +112,8 @@
         <!-- Game Area -->
         <div id="questionContainer" class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg mb-6">
             <p class="text-sm font-semibold text-indigo-700 mb-2">Sentence to Complete:</p>
-            <div class="text-2xl font-semibold text-gray-800">
-                <span id="subjectDisplay"></span>
-                <span class="text-indigo-600 font-bold" id="auxiliaryDisplay"></span>
-                <!-- Stem is now the M/S participle, followed by the missing suffix placeholder -->
-                <span id="stemDisplay" class="font-normal"></span>
-                <span id="suffixPlaceholder" class="suffix-placeholder inline-block h-8 bg-yellow-300 rounded-md animate-pulse align-top"></span>
+            <div class="text-2xl font-semibold text-gray-800" id="gameSentence">
+                <!-- Content injected here based on level -->
             </div>
             <p id="hintDisplay" class="text-xs text-gray-500 mt-2 italic"></p>
         </div>
@@ -161,26 +141,39 @@
     </div>
 
     <script>
-        // --- Data Structure for Passé Composé Practice ---
-        // NEW STRUCTURE:
-        // stem: is the Masculine Singular Past Participle (e.g., entré, sorti, venu)
-        // correctEnding: is the agreement suffix: "" (M/S), "e" (F/S), "s" (M/P), "es" (F/P)
-        const questions = [
-            // Subject (Gender/Number) | Verb Stem (M/S Participle) | Correct Suffix ("","e","s","es") | Hint
-            { subject: "Je (F)", verb: "entrer", stem: "entré", correctEnding: "e", hint: "Feminine singular. Needs +e." },
-            { subject: "Tu (M)", verb: "sortir", stem: "sorti", correctEnding: "", hint: "Masculine singular. No suffix." },
-            { subject: "Elle", verb: "aller", stem: "allé", correctEnding: "e", hint: "Feminine singular. Needs +e." },
-            { subject: "Nous (M)", verb: "venir", stem: "venu", correctEnding: "s", hint: "Masculine plural. Needs +s." },
-            { subject: "Ils", verb: "monter", stem: "monté", correctEnding: "s", hint: "Masculine plural. Needs +s." },
-            { subject: "Vous (F, pl.)", verb: "rester", stem: "resté", correctEnding: "es", hint: "Feminine plural. Needs +es." },
-            { subject: "Il", verb: "tomber", stem: "tombé", correctEnding: "", hint: "Masculine singular. No suffix." },
-            { subject: "Les filles", verb: "partir", stem: "parti", correctEnding: "es", hint: "Feminine plural. Needs +es." },
-            { subject: "Les garçons", verb: "naître", stem: "né", correctEnding: "s", hint: "Masculine plural. Needs +s." },
-            { subject: "Sophie et Marc", verb: "revenir", stem: "revenu", correctEnding: "s", hint: "Masculine plural (mixed gender). Needs +s." },
-            { subject: "Elles", verb: "descendre", stem: "descendu", correctEnding: "es", hint: "Feminine plural. Needs +es." }
+        // --- Data Structures ---
+        
+        // Level 1: Participle Agreement (Être only)
+        // stem: M/S Participle; correctEnding: agreement suffix: "" (M/S), "e" (F/S), "s" (M/P), "es" (F/P)
+        const level1Questions = [
+            { subject: "Je (F)", verb: "entrer", stem: "entré", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
+            { subject: "Tu (M)", verb: "sortir", stem: "sorti", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
+            { subject: "Elle", verb: "aller", stem: "allé", aux: "Être", correctEnding: "e", hint: "Feminine singular. Needs +e." },
+            { subject: "Nous (M)", verb: "venir", stem: "venu", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
+            { subject: "Ils", verb: "monter", stem: "monté", aux: "Être", correctEnding: "s", hint: "Masculine plural. Needs +s." },
+            { subject: "Vous (F, pl.)", verb: "rester", stem: "resté", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Il", verb: "tomber", stem: "tombé", aux: "Être", correctEnding: "", hint: "Masculine singular. No suffix." },
+            { subject: "Les filles", verb: "partir", stem: "parti", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Elles", verb: "descendre", stem: "descendu", aux: "Être", correctEnding: "es", hint: "Feminine plural. Needs +es." },
+            { subject: "Sophie et Marc", verb: "revenir", stem: "revenu", aux: "Être", correctEnding: "s", hint: "Masculine plural (mixed gender). Needs +s." },
         ];
 
-        // The four possible suffixes for agreement. "" represents no suffix.
+        // Level 2: Auxiliary Conjugation (Être or Avoir)
+        // subject: for conjugation; verb: for rule; aux: correct auxiliary; conjugation: correct conjugation; participle: M/S participle
+        const level2Questions = [
+            { subject: "Je (F)", verb: "parler", aux: "Avoir", conjugation: "ai", participle: "parlé", rule: "Parler is not a Dr. Mrs. Vandelkamp verb." },
+            { subject: "Nous (M)", verb: "entrer", aux: "Être", conjugation: "sommes", participle: "entré", rule: "Entrer is a movement verb (Dr. Mrs. Vandelkamp)." },
+            { subject: "Tu", verb: "finir", aux: "Avoir", conjugation: "as", participle: "fini", rule: "Finir is not a Dr. Mrs. Vandelkamp verb." },
+            { subject: "Elle", verb: "tomber", aux: "Être", conjugation: "est", participle: "tombé", rule: "Tomber is a movement verb (Dr. Mrs. Vandelkamp)." },
+            { subject: "Ils", verb: "regarder", aux: "Avoir", conjugation: "ont", participle: "regardé", rule: "Regarder is not a Dr. Mrs. Vandelkamp verb." },
+            { subject: "Vous (F)", verb: "venir", aux: "Être", conjugation: "êtes", participle: "venu", rule: "Venir is a movement verb (Dr. Mrs. Vandelkamp)." },
+            { subject: "Il", verb: "jouer", aux: "Avoir", conjugation: "a", participle: "joué", rule: "Jouer is not a Dr. Mrs. Vandelkamp verb." },
+            { subject: "Elles", verb: "rester", aux: "Être", conjugation: "sont", participle: "resté", rule: "Rester is a state verb (Dr. Mrs. Vandelkamp)." },
+            { subject: "On", verb: "manger", aux: "Avoir", conjugation: "a", participle: "mangé", rule: "Manger is not a Dr. Mrs. Vandelkamp verb." },
+            { subject: "Je (M)", verb: "partir", aux: "Être", conjugation: "suis", participle: "parti", rule: "Partir is a movement verb (Dr. Mrs. Vandelkamp)." },
+        ];
+
+        // Suffixes for Level 1 Agreement
         const allEndings = [
             { ending: "", rule: "Masculin Singulier (M/S). No agreement suffix needed." },
             { ending: "e", rule: "Féminin Singulier (F/S). Requires adding -e." },
@@ -188,15 +181,29 @@
             { ending: "es", rule: "Féminin Pluriel (F/P). Requires adding -e and -s." }
         ];
 
+        // Auxiliary Conjugations for Level 2 Choices
+        const auxConjugations = {
+            "Je": { etre: "suis", avoir: "ai" },
+            "Tu": { etre: "es", avoir: "as" },
+            "Il": { etre: "est", avoir: "a" },
+            "Elle": { etre: "est", avoir: "a" },
+            "On": { etre: "est", avoir: "a" },
+            "Nous": { etre: "sommes", avoir: "avons" },
+            "Vous": { etre: "êtes", avoir: "avez" },
+            "Ils": { etre: "sont", avoir: "ont" },
+            "Elles": { etre: "sont", avoir: "ont" }
+        };
+
+        let gameMode = 1; // Default to Level 1
         let currentQuestionIndex = -1;
         let score = 0;
         let totalQuestions = 0;
 
         // --- DOM Elements ---
-        const subjectDisplay = document.getElementById('subjectDisplay');
-        const auxiliaryDisplay = document.getElementById('auxiliaryDisplay');
-        const stemDisplay = document.getElementById('stemDisplay');
-        const suffixPlaceholder = document.getElementById('suffixPlaceholder');
+        const levelDescription = document.getElementById('levelDescription');
+        const level1Button = document.getElementById('level1Button');
+        const level2Button = document.getElementById('level2Button');
+        const gameSentence = document.getElementById('gameSentence');
         const hintDisplay = document.getElementById('hintDisplay');
         const choicesContainer = document.getElementById('choicesContainer');
         const feedbackContainer = document.getElementById('feedbackContainer');
@@ -215,81 +222,123 @@
             return array;
         }
 
-        // --- Game Logic ---
+        // --- Game Control ---
 
-        function loadQuestion() {
-            // Move to the next question, or loop back if all were answered
+        function setGameMode(mode) {
+            if (gameMode !== mode) {
+                gameMode = mode;
+                score = 0;
+                totalQuestions = 0;
+                currentQuestionIndex = -1;
+                updateGameModeUI();
+                nextQuestion();
+            }
+        }
+
+        function updateGameModeUI() {
+            if (gameMode === 1) {
+                levelDescription.textContent = "Level 1: Participle Agreement (Être only)";
+                level1Button.classList.replace('bg-gray-200', 'bg-indigo-600');
+                level1Button.classList.replace('text-gray-700', 'text-white');
+                level2Button.classList.replace('bg-indigo-600', 'bg-gray-200');
+                level2Button.classList.replace('text-white', 'text-gray-700');
+            } else {
+                levelDescription.textContent = "Level 2: Auxiliary Conjugation (Être or Avoir)";
+                level2Button.classList.replace('bg-gray-200', 'bg-indigo-600');
+                level2Button.classList.replace('text-gray-700', 'text-white');
+                level1Button.classList.replace('bg-indigo-600', 'bg-gray-200');
+                level1Button.classList.replace('text-white', 'text-gray-700');
+            }
+            updateScoreDisplay();
+        }
+
+        function getQuestions() {
+            return gameMode === 1 ? level1Questions : level2Questions;
+        }
+
+        function nextQuestion() {
+            const questions = getQuestions();
             currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-            const q = questions[currentQuestionIndex];
             
+            // Re-shuffle the questions if we loop back to the start
+            if (currentQuestionIndex === 0) {
+                 shuffle(questions);
+            }
+
+            loadQuestion(questions[currentQuestionIndex]);
+        }
+
+        // --- Question Loading ---
+
+        function loadQuestion(q) {
             // 1. Reset UI
             feedbackContainer.classList.add('hidden');
             feedbackContainer.classList.remove('bg-red-100', 'border-red-500', 'bg-green-100', 'border-green-500');
             nextButton.disabled = true;
             choicesContainer.innerHTML = '';
             
-            // 2. Determine auxiliary verb conjugation (simulated for clarity)
-            let auxiliary = 'est'; // Default singular
-            if (q.subject.includes('Nous')) auxiliary = 'sommes';
-            else if (q.subject.includes('Vous')) auxiliary = 'êtes';
-            else if (q.subject.includes('Ils') || q.subject.includes('Elles') || q.subject.includes('Les') || q.subject.includes('et')) auxiliary = 'sont';
-            else if (q.subject.includes('Je') || q.subject.includes('Tu') || q.subject.includes('Il') || q.subject.includes('Elle')) auxiliary = 'est';
+            // 2. Load the Question
+            if (gameMode === 1) {
+                loadLevel1Question(q);
+            } else {
+                loadLevel2Question(q);
+            }
 
-            // 3. Update Question Display
-            subjectDisplay.textContent = q.subject + ' ';
-            auxiliaryDisplay.textContent = auxiliary + ' ';
-            stemDisplay.textContent = q.stem;
+            // 3. Reset the score display
+            updateScoreDisplay();
+        }
+
+        // --- Level 1 Logic (Participle Agreement) ---
+
+        function loadLevel1Question(q) {
+            // Determine auxiliary verb conjugation (always Être)
+            let subjectClean = q.subject.split('(')[0].trim();
+            const auxiliary = auxConjugations[subjectClean] ? auxConjugations[subjectClean].etre : 'est';
+
+            gameSentence.innerHTML = `
+                <span id="subjectDisplay">${q.subject}</span>
+                <span class="text-indigo-600 font-bold">${auxiliary}</span>
+                <span id="stemDisplay" class="font-normal">${q.stem}</span>
+                <span id="suffixPlaceholder" class="suffix-placeholder inline-block h-8 bg-yellow-300 rounded-md animate-pulse align-top"></span>
+            `;
             hintDisplay.textContent = `(Infinitive: ${q.verb} | M/S Participle: ${q.stem})`;
-            
-            // Reset the placeholder state
-            suffixPlaceholder.textContent = '';
-            suffixPlaceholder.classList.remove('text-green-700', 'text-red-700');
-            suffixPlaceholder.classList.add('bg-yellow-300', 'animate-pulse');
 
-
-            // 4. Generate shuffled choices (suffixes)
-            let currentChoices = allEndings.map(e => e.ending); // Get all four suffixes
-            
+            // Generate shuffled choices (suffixes)
+            let currentChoices = allEndings.map(e => e.ending);
             shuffle(currentChoices).forEach(ending => {
                 const button = document.createElement('button');
-                // Display the suffix, use '(no suffix)' for the empty string to make it visually clear
                 button.textContent = ending === "" ? "(no suffix)" : `+ ${ending}`; 
                 button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
-                button.onclick = () => checkAnswer(q, ending, button);
+                button.onclick = () => checkLevel1Answer(q, ending, button, auxiliary);
                 button.dataset.ending = ending;
                 choicesContainer.appendChild(button);
             });
         }
 
-        function checkAnswer(question, selectedEnding, clickedButton) {
-            // Disable all buttons after selection
+        function checkLevel1Answer(question, selectedEnding, clickedButton, auxiliary) {
             Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
 
             const isCorrect = selectedEnding === question.correctEnding;
-            // Full verb is now STEM (M/S Participle) + selectedEnding (Suffix)
-            const fullVerb = question.stem + selectedEnding;
-            const correctFullVerb = question.stem + question.correctEnding;
-
-            totalQuestions++;
-
-            // Find the rule for the correct answer (This is now reliable!)
-            const correctRule = allEndings.find(e => e.ending === question.correctEnding).rule;
+            const correctFullParticiple = question.stem + question.correctEnding;
             
-            // Clear placeholder style
-            suffixPlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
-            suffixPlaceholder.textContent = question.correctEnding === "" ? "" : question.correctEnding;
+            totalQuestions++;
+            const correctRule = allEndings.find(e => e.ending === question.correctEnding).rule;
 
+            const suffixPlaceholder = document.getElementById('suffixPlaceholder');
+            const stemDisplay = document.getElementById('stemDisplay');
+
+            suffixPlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
+            suffixPlaceholder.textContent = question.correctEnding;
 
             if (isCorrect) {
                 score++;
-                feedbackTitle.textContent = "✅ C'est correct! Bien joué.";
+                feedbackTitle.textContent = "✅ C'est correct! Superbe.";
                 feedbackTitle.className = "font-bold text-lg mb-2 text-green-700";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
-                feedbackText.textContent = `The full verb is: ${question.subject} ${auxiliaryDisplay.textContent.trim()} ${correctFullVerb}.`;
+                feedbackText.textContent = `The full verb is: ${question.subject} ${auxiliary} ${correctFullParticiple}.`;
                 ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
                 
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
-                stemDisplay.textContent = question.stem;
                 suffixPlaceholder.classList.add('text-green-700', 'font-bold');
 
             } else {
@@ -297,37 +346,114 @@
                 feedbackTitle.className = "font-bold text-lg mb-2 text-red-700";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 
-                feedbackText.textContent = `You chose '${selectedEnding === "" ? "no suffix" : selectedEnding}', making the word '${fullVerb}'. The correct word is '${correctFullVerb}'.`;
+                const yourParticiple = question.stem + selectedEnding;
+                feedbackText.textContent = `You chose the suffix '${selectedEnding === "" ? "no suffix" : selectedEnding}', making the participle '${yourParticiple}'. The correct participle is '${correctFullParticiple}'.`;
                 ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
 
                 clickedButton.classList.add('bg-red-500', 'text-white');
-                // Highlight the correct answer
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.ending === question.correctEnding);
                 if (correctButton) {
                     correctButton.classList.remove('bg-indigo-100', 'text-indigo-800');
                     correctButton.classList.add('bg-green-200', 'text-green-800', 'border-2', 'border-green-500');
                 }
-                stemDisplay.textContent = question.stem;
                 suffixPlaceholder.classList.add('text-red-700', 'font-bold');
             }
             
-            // Show feedback
             feedbackContainer.classList.remove('hidden');
             nextButton.disabled = false;
             updateScoreDisplay();
         }
 
-        function updateScoreDisplay() {
-            scoreDisplay.textContent = `Score: ${score}/${totalQuestions}`;
+        // --- Level 2 Logic (Auxiliary Conjugation) ---
+
+        function loadLevel2Question(q) {
+            let subjectClean = q.subject.split('(')[0].trim();
+            const subjectAux = auxConjugations[subjectClean];
+            
+            gameSentence.innerHTML = `
+                <span id="subjectDisplay">${q.subject}</span>
+                <span id="auxiliaryPlaceholder" class="inline-block w-20 h-8 bg-yellow-300 rounded-md animate-pulse font-bold text-indigo-600"></span>
+                <span class="font-normal"> ${q.participle}</span>
+                <span class="text-xs italic text-gray-500 ml-1">... ${q.verb}</span>
+            `;
+            hintDisplay.textContent = `(Infinitive: ${q.verb}. Does it take Être or Avoir?)`;
+
+            // Generate choices: Correct Être and Correct Avoir for the subject
+            const etreChoice = subjectAux.etre;
+            const avoirChoice = subjectAux.avoir;
+            const choices = shuffle([etreChoice, avoirChoice]);
+
+            choices.forEach(choice => {
+                const button = document.createElement('button');
+                button.textContent = choice;
+                button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
+                button.onclick = () => checkLevel2Answer(q, choice, button);
+                button.dataset.choice = choice;
+                choicesContainer.appendChild(button);
+            });
         }
 
-        function nextQuestion() {
-            loadQuestion();
+        function checkLevel2Answer(question, selectedChoice, clickedButton) {
+            Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
+            
+            const isCorrect = selectedChoice === question.conjugation;
+            totalQuestions++;
+            
+            // Determine the wrong auxiliary type for feedback
+            const wrongAux = question.aux === "Être" ? "Avoir" : "Être";
+
+            const auxiliaryPlaceholder = document.getElementById('auxiliaryPlaceholder');
+            auxiliaryPlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
+            auxiliaryPlaceholder.textContent = question.conjugation;
+
+            if (isCorrect) {
+                score++;
+                feedbackTitle.textContent = "✅ C'est correct! Excellent choix.";
+                feedbackTitle.className = "font-bold text-lg mb-2 text-green-700";
+                feedbackContainer.classList.add('bg-green-100', 'border-green-500');
+                feedbackText.textContent = `The full conjugation is: ${question.subject} ${question.conjugation} ${question.participle}.`;
+                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. The correct present tense conjugation for the subject **${question.subject.split('(')[0].trim()}** is **'${question.conjugation}'**.`;
+                
+                clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
+                auxiliaryPlaceholder.classList.add('text-green-700');
+
+            } else {
+                feedbackTitle.textContent = "❌ Incorrect. Revoyons le choix de l'auxiliaire.";
+                feedbackTitle.className = "font-bold text-lg mb-2 text-red-700";
+                feedbackContainer.classList.add('bg-red-100', 'border-red-500');
+                
+                feedbackText.textContent = `You chose '${selectedChoice}'. The correct auxiliary for **${question.verb}** is **${question.aux}**, which is conjugated as **'${question.conjugation}'**.`;
+                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. You incorrectly selected a conjugation of **${wrongAux}**.`;
+
+                clickedButton.classList.add('bg-red-500', 'text-white');
+                const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.conjugation);
+                if (correctButton) {
+                    correctButton.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    correctButton.classList.add('bg-green-200', 'text-green-800', 'border-2', 'border-green-500');
+                }
+                auxiliaryPlaceholder.classList.add('text-red-700');
+            }
+            
+            feedbackContainer.classList.remove('hidden');
+            nextButton.disabled = false;
+            updateScoreDisplay();
+        }
+
+
+        // --- General UI ---
+
+        function updateScoreDisplay() {
+            scoreDisplay.textContent = `Score: ${score}/${totalQuestions} (Level ${gameMode})`;
         }
 
         // --- Initialization ---
-        shuffle(questions); // Randomize the question order
-        loadQuestion(); // Start the first question
+        // Ensure both question sets are shuffled on load
+        shuffle(level1Questions); 
+        shuffle(level2Questions);
+        
+        // Start the game in Level 1 mode
+        updateGameModeUI();
+        loadQuestion(level1Questions[0]); 
 
     </script>
 </body>
