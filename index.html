@@ -131,10 +131,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>**Masculin Singulier (M/S)**</td><td>**(No suffix)**</td><td>Basic form.</td></tr>
-                        <tr><td>**Féminin Singulier (F/S)**</td><td>**-e**</td><td>Add **-e**.</td></tr>
-                        <tr><td>**Masculin Pluriel (M/P)**</td><td>**-s**</td><td>Add **-s**.</td></tr>
-                        <tr><td>**Féminin Pluriel (F/P)**</td><td>**-es**</td><td>Add **-e** and **-s**.</td></tr>
+                        <tr><td>**Masculine Singular (M/S)**</td><td>**(No suffix)**</td><td>Basic form.</td></tr>
+                        <tr><td>**Feminine Singular (F/S)**</td><td>**-e**</td><td>Add **-e**.</td></tr>
+                        <tr><td>**Masculine Plural (M/P)**</td><td>**-s**</td><td>Add **-s**.</td></tr>
+                        <tr><td>**Feminine Plural (F/P)**</td><td>**-es**</td><td>Add **-e** and **-s**.</td></tr>
                     </tbody>
                 </table>
 
@@ -215,34 +215,34 @@
         
         // Level 3: Participle Formation (M/S Participle)
         const level3Questions = [
-            { verb: "parler", correct: "parlé", incorrect: ["parlai", "parli"], rule: "Regular -ER verb. Drop -ER, add -é." },
-            { verb: "finir", correct: "fini", incorrect: ["finit", "finu"], rule: "Regular -IR verb. Drop -IR, add -i." },
-            { verb: "vendre", correct: "vendu", incorrect: ["vendé", "vendis"], rule: "Regular -RE verb. Drop -RE, add -u." },
-            { verb: "faire", correct: "fait", incorrect: ["fé", "faireu"], rule: "Irregular verb. Must be memorized." },
-            { verb: "avoir", correct: "eu", incorrect: ["ayé", "avé"], rule: "Irregular verb. Must be memorized." },
-            { verb: "être", correct: "été", incorrect: ["étu", "êté"], rule: "Irregular verb. Must be memorized." },
-            { verb: "voir", correct: "vu", incorrect: ["vois", "voyu"], rule: "Irregular verb. Must be memorized." },
-            { verb: "prendre", correct: "pris", incorrect: ["prenu", "prendi"], rule: "Irregular verb. Must be memorized." },
-            { verb: "lire", correct: "lu", incorrect: ["lit", "lis"], rule: "Irregular verb. Must be memorized." },
-            { verb: "boire", correct: "bu", incorrect: ["boi", "bus"], rule: "Irregular verb. Must be memorized." },
+            { verb: "parler", correct: "parlé", incorrect: ["parlai", "parli"], rule: "Regular -ER verb: take off -ER, add -é." },
+            { verb: "finir", correct: "fini", incorrect: ["finit", "finu"], rule: "Regular -IR verb: take off -IR, add -i." },
+            { verb: "vendre", correct: "vendu", incorrect: ["vendé", "vendis"], rule: "Regular -RE verb: take off -RE, add -u." },
+            { verb: "faire", correct: "fait", incorrect: ["fé", "faireu"], rule: "Irregular verb: You must memorize its shape (faire -> fait)." },
+            { verb: "avoir", correct: "eu", incorrect: ["ayé", "avé"], rule: "Irregular verb: You must memorize its shape (avoir -> eu)." },
+            { verb: "être", correct: "été", incorrect: ["étu", "êté"], rule: "Irregular verb: You must memorize its shape (être -> été)." },
+            { verb: "voir", correct: "vu", incorrect: ["vois", "voyu"], rule: "Irregular verb: You must memorize its shape (voir -> vu)." },
+            { verb: "prendre", correct: "pris", incorrect: ["prenu", "prendi"], rule: "Irregular verb: You must memorize its shape (prendre -> pris)." },
+            { verb: "lire", correct: "lu", incorrect: ["lit", "lis"], rule: "Irregular verb: You must memorize its shape (lire -> lu)." },
+            { verb: "boire", correct: "bu", incorrect: ["boi", "bus"], rule: "Irregular verb: You must memorize its shape (boire -> bu)." },
         ];
 
         // Level 4: Tense Transformation (PC to Present)
         const level4Questions = [
-            { subject: "Nous", verb: "entrer", pcSentence: "Nous sommes entrés.", correctPresent: "entrons", incorrect: ["sommes", "entres", "entrent"], rule: "The present tense of 'entrer' for 'Nous' is 'entrons'." },
-            { subject: "Tu", verb: "parler", pcSentence: "Tu as parlé.", correctPresent: "parles", incorrect: ["a", "parle", "parlez"], rule: "The present tense of 'parler' for 'Tu' is 'parles'." },
-            { subject: "Il", verb: "finir", pcSentence: "Il a fini.", correctPresent: "finit", incorrect: ["a", "finis", "finir"], rule: "The present tense of 'finir' for 'Il' is 'finit'." },
-            { subject: "Elles", verb: "vendre", pcSentence: "Elles ont vendu.", correctPresent: "vendent", incorrect: ["ont", "vendons", "vendez"], rule: "The present tense of 'vendre' for 'Elles' is 'vendent'." },
-            { subject: "Je (M)", verb: "faire", pcSentence: "J'ai fait.", correctPresent: "fais", incorrect: ["fait", "faisons", "ai"], rule: "The present tense of 'faire' for 'Je' is 'fais'." },
-            { subject: "Vous", verb: "voir", pcSentence: "Vous avez vu.", correctPresent: "voyez", incorrect: ["vois", "voyons", "avez"], rule: "The present tense of 'voir' for 'Vous' is 'voyez'." },
+            { subject: "Nous", verb: "entrer", pcSentence: "Nous sommes entrés.", correctPresent: "entrons", incorrect: ["sommes", "entres", "entrent"], rule: "In the Present tense, 'entrer' for 'Nous' is 'entrons'." },
+            { subject: "Tu", verb: "parler", pcSentence: "Tu as parlé.", correctPresent: "parles", incorrect: ["a", "parle", "parlez"], rule: "In the Present tense, 'parler' for 'Tu' is 'parles'." },
+            { subject: "Il", verb: "finir", pcSentence: "Il a fini.", correctPresent: "finit", incorrect: ["a", "finis", "finir"], rule: "In the Present tense, 'finir' for 'Il' is 'finit'." },
+            { subject: "Elles", verb: "vendre", pcSentence: "Elles ont vendu.", correctPresent: "vendent", incorrect: ["ont", "vendons", "vendez"], rule: "In the Present tense, 'vendre' for 'Elles' is 'vendent'." },
+            { subject: "Je (M)", verb: "faire", pcSentence: "J'ai fait.", correctPresent: "fais", incorrect: ["fait", "faisons", "ai"], rule: "In the Present tense, 'faire' for 'Je' is 'fais'." },
+            { subject: "Vous", verb: "voir", pcSentence: "Vous avez vu.", correctPresent: "voyez", incorrect: ["vois", "voyons", "avez"], rule: "In the Present tense, 'voir' for 'Vous' is 'voyez'." },
         ];
 
         // Suffixes for Level 1 Agreement
         const allEndings = [
-            { ending: "", rule: "Masculin Singulier (M/S). No agreement suffix needed." },
-            { ending: "e", rule: "Féminin Singulier (F/S). Requires adding -e." },
-            { ending: "s", rule: "Masculin Pluriel (M/P). Requires adding -s." },
-            { ending: "es", rule: "Féminin Pluriel (F/P). Requires adding -e and -s." }
+            { ending: "", rule: "Masculine Singular. No extra letter needed." },
+            { ending: "e", rule: "Feminine Singular. Add -e." },
+            { ending: "s", rule: "Masculine Plural. Add -s." },
+            { ending: "es", rule: "Feminine Plural. Add -e and -s." }
         ];
 
         // Auxiliary Conjugations for Level 2 Choices
@@ -404,19 +404,19 @@
 
             if (isCorrect) {
                 score++;
-                feedbackTitle.textContent = "✅ C'est correct! Superbe.";
+                feedbackTitle.textContent = "✅ Correct! Great job.";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The full verb is: ${question.subject} ${auxiliary} ${correctFullParticiple}.`;
-                ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
+                ruleText.innerHTML = `**The Rule:** The participle must match the subject with Être. The subject **${question.subject}** is **${correctRule.toLowerCase()}**, so you need the **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'** ending.`;
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 suffixPlaceholder.classList.add('text-green-700', 'font-bold');
 
             } else {
-                feedbackTitle.textContent = "❌ Incorrect. Revoyons la règle.";
+                feedbackTitle.textContent = "❌ Incorrect. Review the rule.";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 const yourParticiple = question.stem + selectedEnding;
                 feedbackText.textContent = `You chose the suffix '${selectedEnding === "" ? "no suffix" : selectedEnding}', making the participle '${yourParticiple}'. The correct participle is '${correctFullParticiple}'.`;
-                ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
+                ruleText.innerHTML = `**The Rule:** The participle must match the subject with Être. The correct agreement for **${question.subject}** is **${correctRule.toLowerCase()}**, so you needed the **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'** ending.`;
                 clickedButton.classList.add('bg-red-500', 'text-white');
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.ending === question.correctEnding);
                 if (correctButton) {
@@ -472,20 +472,20 @@
 
             if (isCorrect) {
                 score++;
-                feedbackTitle.textContent = "✅ C'est correct! Excellent choix.";
+                feedbackTitle.textContent = "✅ Correct! Excellent choice of auxiliary verb.";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The full conjugation is: ${question.subject} ${question.conjugation} ${question.participle}.`;
-                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. The correct present tense conjugation for the subject **${cleanSubject(question.subject)}** is **'${question.conjugation}'**.`;
+                ruleText.innerHTML = `**The Rule:** The verb **${question.verb}** is **${question.aux === "Être" ? 'an Être verb (Dr. Mrs. Vandelkamp/Reflexive)' : 'an Avoir verb (most verbs)'}**. The present tense form of ${question.aux} for the subject **${cleanSubject(question.subject)}** is **'${question.conjugation}'** (The Passé Composé is always the auxiliary verb + the past participle).`;
                 
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 auxiliaryPlaceholder.classList.add('text-green-700');
 
             } else {
-                feedbackTitle.textContent = "❌ Incorrect. Revoyons le choix de l'auxiliaire.";
+                feedbackTitle.textContent = "❌ Incorrect. Review the auxiliary verb choice.";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 
                 feedbackText.textContent = `You chose '${selectedChoice}'. The correct auxiliary for **${question.verb}** is **${question.aux}**, which is conjugated as **'${question.conjugation}'**.`;
-                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. You incorrectly selected a conjugation of **${wrongAux}**.`;
+                ruleText.innerHTML = `**The Rule:** The verb **${question.verb}** is **${question.aux === "Être" ? 'an Être verb (Dr. Mrs. Vandelkamp/Reflexive)' : 'an Avoir verb (most verbs)'}**. You incorrectly selected a conjugation of **${wrongAux}**. Remember the rule for Dr. Mrs. Vandelkamp verbs!`;
 
                 clickedButton.classList.add('bg-red-500', 'text-white');
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.conjugation);
@@ -535,20 +535,20 @@
 
             if (isCorrect) {
                 score++;
-                feedbackTitle.textContent = "✅ C'est correct! Vous maîtrisez la forme.";
+                feedbackTitle.textContent = "✅ Correct! You mastered the shape of the verb.";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The past participle of **${question.verb}** is **${question.correct}**.`;
-                ruleText.innerHTML = `**Règle (The Rule):** ${question.rule}`;
+                ruleText.innerHTML = `**The Rule:** ${question.rule}`;
                 
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 participlePlaceholder.classList.add('text-green-700');
 
             } else {
-                feedbackTitle.textContent = "❌ Incorrect. Revoyons la formation.";
+                feedbackTitle.textContent = "❌ Incorrect. Review the participle formation rule.";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 
                 feedbackText.textContent = `You chose '${selectedChoice}'. The correct past participle of **${question.verb}** is **${question.correct}**.`;
-                ruleText.innerHTML = `**Règle (The Rule):** ${question.rule}`;
+                ruleText.innerHTML = `**The Rule:** ${question.rule}`;
 
                 clickedButton.classList.add('bg-red-500', 'text-white');
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.correct);
@@ -600,20 +600,20 @@
 
             if (isCorrect) {
                 score++;
-                feedbackTitle.textContent = "✅ C'est correct! Excellente transformation.";
+                feedbackTitle.textContent = "✅ Correct! You mastered the tense change.";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The original sentence **"${question.pcSentence}"** becomes **"${cleanSubject(question.subject)} ${question.correctPresent}..."** in the present tense.`;
-                ruleText.innerHTML = `**Règle (The Rule):** In the *Présent* tense, you only need the main verb **${question.verb}** conjugated for the subject **${cleanSubject(question.subject)}**. ${question.rule}`;
+                ruleText.innerHTML = `**The Rule:** The *Passé Composé* is two parts (auxiliary + participle). The *Présent* tense is just **one part**: the main verb **${question.verb}** conjugated for **${cleanSubject(question.subject)}**.`;
                 
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 presentPlaceholder.classList.add('text-green-700');
 
             } else {
-                feedbackTitle.textContent = "❌ Incorrect. Revoyons la conjugaison au présent.";
+                feedbackTitle.textContent = "❌ Incorrect. Review the present tense conjugation.";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 
                 feedbackText.textContent = `You chose '${selectedChoice}'. The correct present tense conjugation for **${question.verb}** and **${cleanSubject(question.subject)}** is **'${question.correctPresent}'**.`;
-                ruleText.innerHTML = `**Règle (The Rule):** In the *Présent* tense, you only need the main verb **${question.verb}** conjugated for the subject **${cleanSubject(question.subject)}**. ${question.rule}`;
+                ruleText.innerHTML = `**The Rule:** The *Passé Composé* is two parts (auxiliary + participle). The *Présent* tense is just **one part**: the main verb **${question.verb}** conjugated for **${cleanSubject(question.subject)}**.`;
 
                 clickedButton.classList.add('bg-red-500', 'text-white');
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.correctPresent);
