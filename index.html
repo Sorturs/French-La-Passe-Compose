@@ -21,6 +21,21 @@
             min-width: 2.5rem; /* Ensure minimum width for visibility */
             display: inline-block;
         }
+        /* Style the tables inside the cheat sheet */
+        .cheat-sheet table {
+            width: 100%;
+            margin-top: 0.75rem;
+            border-collapse: collapse;
+        }
+        .cheat-sheet th, .cheat-sheet td {
+            padding: 0.5rem;
+            text-align: left;
+            border: 1px solid #e5e7eb; /* Light gray border */
+        }
+        .cheat-sheet th {
+            background-color: #eef2ff; /* Light indigo background */
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex items-center justify-center">
@@ -29,6 +44,86 @@
         
         <h1 class="text-3xl font-bold text-indigo-700 mb-2">Le Participe Puzzle</h1>
         <p class="text-gray-600 mb-6">Pratiquez l'accord du participe passé avec l'auxiliaire **Être**.</p>
+
+        <!-- CHEAT SHEET/REFERENCE SECTION -->
+        <details class="mb-6 rounded-lg border border-indigo-300 bg-indigo-50/50 shadow-inner">
+            <summary class="p-4 cursor-pointer font-bold text-indigo-700 hover:bg-indigo-100/70 rounded-lg transition duration-150">
+                📚 Review: Passé Composé (Être) Cheat Sheet
+            </summary>
+            <div class="p-4 pt-0 text-sm text-gray-700 max-h-96 overflow-y-auto cheat-sheet">
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">1. The List: Verbs That Use Être (Dr. Mrs. Vandelkamp)</h3>
+                <p>Only these movement/state verbs use **Être**. All others use **Avoir**.</p>
+                
+                <table class="text-xs">
+                    <thead>
+                        <tr>
+                            <th>Infinitive</th>
+                            <th>M/S Participle</th>
+                            <th>Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>**aller**</td><td>allé</td><td>to go</td></tr>
+                        <tr><td>**venir**</td><td>venu</td><td>to come</td></tr>
+                        <tr><td>**entrer**</td><td>entré</td><td>to enter</td></tr>
+                        <tr><td>**sortir**</td><td>sorti</td><td>to go out, to leave</td></tr>
+                        <tr><td>**monter**</td><td>monté</td><td>to go up</td></tr>
+                        <tr><td>**descendre**</td><td>descendu</td><td>to go down</td></tr>
+                        <tr><td>**arriver**</td><td>arrivé</td><td>to arrive</td></tr>
+                        <tr><td>**partir**</td><td>parti</td><td>to leave</td></tr>
+                        <tr><td>**passer**</td><td>passé</td><td>to pass (by)</td></tr>
+                        <tr><td>**retourner**</td><td>retourné</td><td>to return, to go back</td></tr>
+                        <tr><td>**rester**</td><td>resté</td><td>to stay, to remain</td></tr>
+                        <tr><td>**naître**</td><td>né</td><td>to be born</td></tr>
+                        <tr><td>**mourir**</td><td>mort</td><td>to die</td></tr>
+                        <tr><td>**tomber**</td><td>tombé</td><td>to fall</td></tr>
+                        <tr><td>**devenir**</td><td>devenu</td><td>to become</td></tr>
+                        <tr><td>**revenir**</td><td>revenu</td><td>to come back</td></tr>
+                        <tr><td colspan="3">***Plus all reflexive verbs***</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">2. The Rule: Past Participle Agreement (L'Accord)</h3>
+                <p>If you use **Être**, the participle **MUST** agree with the subject.</p>
+
+                <table class="text-xs">
+                    <thead>
+                        <tr>
+                            <th>Subject Type</th>
+                            <th>Suffix</th>
+                            <th>Example (entré)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>**Masculin Singulier (M/S)**</td><td>**(No suffix)**</td><td>**entré**</td></tr>
+                        <tr><td>**Féminin Singulier (F/S)**</td><td>**-e**</td><td>**entrée**</td></tr>
+                        <tr><td>**Masculin Pluriel (M/P)**</td><td>**-s**</td><td>**entrés**</td></tr>
+                        <tr><td>**Féminin Pluriel (F/P)**</td><td>**-es**</td><td>**entrées**</td></tr>
+                    </tbody>
+                </table>
+                <p class="mt-2 text-xs font-bold text-red-600">⚠️ Critical Rule: A mixed group (e.g., Sophie et Marc) is always Masculine Plural (-s).</p>
+                
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">3. The Auxiliary Verb: Être Conjugation</h3>
+                
+                <table class="text-xs">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Être Conjugation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>**Je**</td><td>**suis**</td></tr>
+                        <tr><td>**Tu**</td><td>**es**</td></tr>
+                        <tr><td>**Il/Elle/On**</td><td>**est**</td></tr>
+                        <tr><td>**Nous**</td><td>**sommes**</td></tr>
+                        <tr><td>**Vous**</td><td>**êtes**</td></tr>
+                        <tr><td>**Ils/Elles**</td><td>**sont**</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+        <!-- END CHEAT SHEET/REFERENCE SECTION -->
 
         <!-- Game Area -->
         <div id="questionContainer" class="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-lg mb-6">
@@ -157,7 +252,7 @@
             
             shuffle(currentChoices).forEach(ending => {
                 const button = document.createElement('button');
-                // Display the suffix, use '...' for the empty string to make it visually clear
+                // Display the suffix, use '(no suffix)' for the empty string to make it visually clear
                 button.textContent = ending === "" ? "(no suffix)" : `+ ${ending}`; 
                 button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
                 button.onclick = () => checkAnswer(q, ending, button);
