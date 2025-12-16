@@ -36,34 +36,52 @@
             background-color: #eef2ff; /* Light indigo background */
             font-weight: 600;
         }
+        /* Ensure buttons wrap gracefully */
+        .level-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .level-buttons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex items-center justify-center">
 
-    <div class="w-full max-w-2xl bg-white rounded-xl p-6 md:p-10 card-shadow">
+    <div class="w-full max-w-4xl bg-white rounded-xl p-6 md:p-10 card-shadow">
         
         <h1 class="text-3xl font-bold text-indigo-700 mb-2">Passé Composé Mastery</h1>
         <p class="text-gray-600 mb-6" id="levelDescription">Level 1: Participle Agreement (Être only)</p>
 
         <!-- LEVEL TOGGLE -->
-        <div class="flex justify-center space-x-4 mb-6">
-            <button id="level1Button" onclick="setGameMode(1)" class="px-4 py-2 bg-indigo-600 text-white font-bold rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <div class="level-buttons mb-6">
+            <button id="level1Button" onclick="setGameMode(1)" class="px-3 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 Level 1: Participle Agreement
             </button>
-            <button id="level2Button" onclick="setGameMode(2)" class="px-4 py-2 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button id="level2Button" onclick="setGameMode(2)" class="px-3 py-2 bg-gray-200 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 Level 2: Auxiliary Conjugation
+            </button>
+             <button id="level3Button" onclick="setGameMode(3)" class="px-3 py-2 bg-gray-200 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Level 3: Participle Formation
+            </button>
+             <button id="level4Button" onclick="setGameMode(4)" class="px-3 py-2 bg-gray-200 text-gray-700 text-sm font-bold rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                Level 4: Tense Transformation
             </button>
         </div>
 
         <!-- CHEAT SHEET/REFERENCE SECTION -->
         <details class="mb-6 rounded-lg border border-indigo-300 bg-indigo-50/50 shadow-inner">
             <summary class="p-4 cursor-pointer font-bold text-indigo-700 hover:bg-indigo-100/70 rounded-lg transition duration-150">
-                📚 Review: Passé Composé (Être & Avoir) Cheat Sheet
+                📚 Review: Passé Composé & Present Tense Cheat Sheet
             </summary>
             <div class="p-4 pt-0 text-sm text-gray-700 max-h-96 overflow-y-auto cheat-sheet">
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">1. Auxiliary Conjugation (Level 2 Focus)</h3>
-                <p>Choose **Être** for Dr. Mrs. Vandelkamp verbs, **Avoir** for all others. Conjugate the correct auxiliary in the present tense:</p>
-
+                
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">1. Auxiliary Choice (Level 2 Focus)</h3>
+                <p>Choose **Être** for Dr. Mrs. Vandelkamp verbs, **Avoir** for all others.</p>
+                <h4 class="text-lg font-bold text-indigo-500 mb-1 mt-3">Être and Avoir Conjugation (Present Tense)</h4>
                 <table class="text-xs">
                     <thead>
                         <tr>
@@ -82,7 +100,26 @@
                     </tbody>
                 </table>
                 
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">2. Participle Agreement (Level 1 Focus)</h3>
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">2. Participle Formation (Level 3 Focus)</h3>
+                <p>The M/S Participle is the base form for all agreements:</p>
+                <table class="text-xs">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Infinitive Ending</th>
+                            <th>Participle Ending</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>**Regular**</td><td>-ER</td><td>-é</td><td>parler → parlé</td></tr>
+                        <tr><td>**Regular**</td><td>-IR</td><td>-i</td><td>finir → fini</td></tr>
+                        <tr><td>**Regular**</td><td>-RE</td><td>-u</td><td>vendre → vendu</td></tr>
+                        <tr><td>**Irregular**</td><td>-DRE, -OIR, etc.</td><td>-t, -u, -s</td><td>faire → fait; voir → vu; prendre → pris</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">3. Participle Agreement (Level 1 Focus)</h3>
                 <p>Agreement **ONLY** happens with **Être**. The participle must agree with the subject.</p>
 
                 <table class="text-xs">
@@ -100,9 +137,8 @@
                         <tr><td>**Féminin Pluriel (F/P)**</td><td>**-es**</td><td>Add **-e** and **-s**.</td></tr>
                     </tbody>
                 </table>
-                <p class="mt-2 text-xs font-bold text-red-600">⚠️ Mixed groups are always M/P (-s).</p>
-                
-                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">3. Dr. Mrs. Vandelkamp Verbs (Uses Être)</h3>
+
+                <h3 class="text-xl font-bold text-indigo-600 mb-2 mt-4">4. Dr. Mrs. Vandelkamp Verbs (Uses Être)</h3>
                 <p>aller, venir, entrer, sortir, monter, descendre, arriver, partir, passer, retourner, rester, naître, mourir, tomber, devenir, revenir. *Plus all reflexive verbs.*</p>
 
             </div>
@@ -143,6 +179,11 @@
     <script>
         // --- Data Structures ---
         
+        // Helper function to clean subject (e.g., 'Je (F)' -> 'Je')
+        function cleanSubject(subject) {
+            return subject.split('(')[0].trim();
+        }
+
         // Level 1: Participle Agreement (Être only)
         // stem: M/S Participle; correctEnding: agreement suffix: "" (M/S), "e" (F/S), "s" (M/P), "es" (F/P)
         const level1Questions = [
@@ -159,7 +200,6 @@
         ];
 
         // Level 2: Auxiliary Conjugation (Être or Avoir)
-        // subject: for conjugation; verb: for rule; aux: correct auxiliary; conjugation: correct conjugation; participle: M/S participle
         const level2Questions = [
             { subject: "Je (F)", verb: "parler", aux: "Avoir", conjugation: "ai", participle: "parlé", rule: "Parler is not a Dr. Mrs. Vandelkamp verb." },
             { subject: "Nous (M)", verb: "entrer", aux: "Être", conjugation: "sommes", participle: "entré", rule: "Entrer is a movement verb (Dr. Mrs. Vandelkamp)." },
@@ -171,6 +211,30 @@
             { subject: "Elles", verb: "rester", aux: "Être", conjugation: "sont", participle: "resté", rule: "Rester is a state verb (Dr. Mrs. Vandelkamp)." },
             { subject: "On", verb: "manger", aux: "Avoir", conjugation: "a", participle: "mangé", rule: "Manger is not a Dr. Mrs. Vandelkamp verb." },
             { subject: "Je (M)", verb: "partir", aux: "Être", conjugation: "suis", participle: "parti", rule: "Partir is a movement verb (Dr. Mrs. Vandelkamp)." },
+        ];
+        
+        // Level 3: Participle Formation (M/S Participle)
+        const level3Questions = [
+            { verb: "parler", correct: "parlé", incorrect: ["parlai", "parli"], rule: "Regular -ER verb. Drop -ER, add -é." },
+            { verb: "finir", correct: "fini", incorrect: ["finit", "finu"], rule: "Regular -IR verb. Drop -IR, add -i." },
+            { verb: "vendre", correct: "vendu", incorrect: ["vendé", "vendis"], rule: "Regular -RE verb. Drop -RE, add -u." },
+            { verb: "faire", correct: "fait", incorrect: ["fé", "faireu"], rule: "Irregular verb. Must be memorized." },
+            { verb: "avoir", correct: "eu", incorrect: ["ayé", "avé"], rule: "Irregular verb. Must be memorized." },
+            { verb: "être", correct: "été", incorrect: ["étu", "êté"], rule: "Irregular verb. Must be memorized." },
+            { verb: "voir", correct: "vu", incorrect: ["vois", "voyu"], rule: "Irregular verb. Must be memorized." },
+            { verb: "prendre", correct: "pris", incorrect: ["prenu", "prendi"], rule: "Irregular verb. Must be memorized." },
+            { verb: "lire", correct: "lu", incorrect: ["lit", "lis"], rule: "Irregular verb. Must be memorized." },
+            { verb: "boire", correct: "bu", incorrect: ["boi", "bus"], rule: "Irregular verb. Must be memorized." },
+        ];
+
+        // Level 4: Tense Transformation (PC to Present)
+        const level4Questions = [
+            { subject: "Nous", verb: "entrer", pcSentence: "Nous sommes entrés.", correctPresent: "entrons", incorrect: ["sommes", "entres", "entrent"], rule: "The present tense of 'entrer' for 'Nous' is 'entrons'." },
+            { subject: "Tu", verb: "parler", pcSentence: "Tu as parlé.", correctPresent: "parles", incorrect: ["a", "parle", "parlez"], rule: "The present tense of 'parler' for 'Tu' is 'parles'." },
+            { subject: "Il", verb: "finir", pcSentence: "Il a fini.", correctPresent: "finit", incorrect: ["a", "finis", "finir"], rule: "The present tense of 'finir' for 'Il' is 'finit'." },
+            { subject: "Elles", verb: "vendre", pcSentence: "Elles ont vendu.", correctPresent: "vendent", incorrect: ["ont", "vendons", "vendez"], rule: "The present tense of 'vendre' for 'Elles' is 'vendent'." },
+            { subject: "Je (M)", verb: "faire", pcSentence: "J'ai fait.", correctPresent: "fais", incorrect: ["fait", "faisons", "ai"], rule: "The present tense of 'faire' for 'Je' is 'fais'." },
+            { subject: "Vous", verb: "voir", pcSentence: "Vous avez vu.", correctPresent: "voyez", incorrect: ["vois", "voyons", "avez"], rule: "The present tense of 'voir' for 'Vous' is 'voyez'." },
         ];
 
         // Suffixes for Level 1 Agreement
@@ -201,8 +265,12 @@
 
         // --- DOM Elements ---
         const levelDescription = document.getElementById('levelDescription');
-        const level1Button = document.getElementById('level1Button');
-        const level2Button = document.getElementById('level2Button');
+        const levelButtons = {
+            1: document.getElementById('level1Button'),
+            2: document.getElementById('level2Button'),
+            3: document.getElementById('level3Button'),
+            4: document.getElementById('level4Button')
+        };
         const gameSentence = document.getElementById('gameSentence');
         const hintDisplay = document.getElementById('hintDisplay');
         const choicesContainer = document.getElementById('choicesContainer');
@@ -236,31 +304,40 @@
         }
 
         function updateGameModeUI() {
-            if (gameMode === 1) {
-                levelDescription.textContent = "Level 1: Participle Agreement (Être only)";
-                level1Button.classList.replace('bg-gray-200', 'bg-indigo-600');
-                level1Button.classList.replace('text-gray-700', 'text-white');
-                level2Button.classList.replace('bg-indigo-600', 'bg-gray-200');
-                level2Button.classList.replace('text-white', 'text-gray-700');
-            } else {
-                levelDescription.textContent = "Level 2: Auxiliary Conjugation (Être or Avoir)";
-                level2Button.classList.replace('bg-gray-200', 'bg-indigo-600');
-                level2Button.classList.replace('text-gray-700', 'text-white');
-                level1Button.classList.replace('bg-indigo-600', 'bg-gray-200');
-                level1Button.classList.replace('text-white', 'text-gray-700');
+            const descriptions = {
+                1: "Level 1: Participle Agreement (Être only)",
+                2: "Level 2: Auxiliary Conjugation (Être or Avoir)",
+                3: "Level 3: Participle Formation (Regular & Irregular)",
+                4: "Level 4: Tense Transformation (Passé Composé to Présent)",
+            };
+            levelDescription.textContent = descriptions[gameMode];
+
+            for (const mode in levelButtons) {
+                if (parseInt(mode) === gameMode) {
+                    levelButtons[mode].classList.replace('bg-gray-200', 'bg-indigo-600');
+                    levelButtons[mode].classList.replace('text-gray-700', 'text-white');
+                } else {
+                    levelButtons[mode].classList.replace('bg-indigo-600', 'bg-gray-200');
+                    levelButtons[mode].classList.replace('text-white', 'text-gray-700');
+                }
             }
             updateScoreDisplay();
         }
 
         function getQuestions() {
-            return gameMode === 1 ? level1Questions : level2Questions;
+            switch (gameMode) {
+                case 1: return level1Questions;
+                case 2: return level2Questions;
+                case 3: return level3Questions;
+                case 4: return level4Questions;
+                default: return level1Questions;
+            }
         }
 
         function nextQuestion() {
             const questions = getQuestions();
             currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
             
-            // Re-shuffle the questions if we loop back to the start
             if (currentQuestionIndex === 0) {
                  shuffle(questions);
             }
@@ -278,10 +355,11 @@
             choicesContainer.innerHTML = '';
             
             // 2. Load the Question
-            if (gameMode === 1) {
-                loadLevel1Question(q);
-            } else {
-                loadLevel2Question(q);
+            switch (gameMode) {
+                case 1: loadLevel1Question(q); break;
+                case 2: loadLevel2Question(q); break;
+                case 3: loadLevel3Question(q); break;
+                case 4: loadLevel4Question(q); break;
             }
 
             // 3. Reset the score display
@@ -291,8 +369,7 @@
         // --- Level 1 Logic (Participle Agreement) ---
 
         function loadLevel1Question(q) {
-            // Determine auxiliary verb conjugation (always Être)
-            let subjectClean = q.subject.split('(')[0].trim();
+            let subjectClean = cleanSubject(q.subject);
             const auxiliary = auxConjugations[subjectClean] ? auxConjugations[subjectClean].etre : 'est';
 
             gameSentence.innerHTML = `
@@ -303,7 +380,6 @@
             `;
             hintDisplay.textContent = `(Infinitive: ${q.verb} | M/S Participle: ${q.stem})`;
 
-            // Generate shuffled choices (suffixes)
             let currentChoices = allEndings.map(e => e.ending);
             shuffle(currentChoices).forEach(ending => {
                 const button = document.createElement('button');
@@ -317,15 +393,11 @@
 
         function checkLevel1Answer(question, selectedEnding, clickedButton, auxiliary) {
             Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
-
             const isCorrect = selectedEnding === question.correctEnding;
             const correctFullParticiple = question.stem + question.correctEnding;
-            
             totalQuestions++;
             const correctRule = allEndings.find(e => e.ending === question.correctEnding).rule;
-
             const suffixPlaceholder = document.getElementById('suffixPlaceholder');
-            const stemDisplay = document.getElementById('stemDisplay');
 
             suffixPlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
             suffixPlaceholder.textContent = question.correctEnding;
@@ -333,23 +405,18 @@
             if (isCorrect) {
                 score++;
                 feedbackTitle.textContent = "✅ C'est correct! Superbe.";
-                feedbackTitle.className = "font-bold text-lg mb-2 text-green-700";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The full verb is: ${question.subject} ${auxiliary} ${correctFullParticiple}.`;
                 ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
-                
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 suffixPlaceholder.classList.add('text-green-700', 'font-bold');
 
             } else {
                 feedbackTitle.textContent = "❌ Incorrect. Revoyons la règle.";
-                feedbackTitle.className = "font-bold text-lg mb-2 text-red-700";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
-                
                 const yourParticiple = question.stem + selectedEnding;
                 feedbackText.textContent = `You chose the suffix '${selectedEnding === "" ? "no suffix" : selectedEnding}', making the participle '${yourParticiple}'. The correct participle is '${correctFullParticiple}'.`;
                 ruleText.innerHTML = `**Règle (The Rule):** The past participle agrees with the subject when using 'Être'. Since the subject is **${question.subject}**, the agreement requires the **${correctRule}** ending, which is **'${question.correctEnding === "" ? "no suffix" : question.correctEnding}'**.`;
-
                 clickedButton.classList.add('bg-red-500', 'text-white');
                 const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.ending === question.correctEnding);
                 if (correctButton) {
@@ -358,7 +425,7 @@
                 }
                 suffixPlaceholder.classList.add('text-red-700', 'font-bold');
             }
-            
+            feedbackTitle.className = "font-bold text-lg mb-2 " + (isCorrect ? "text-green-700" : "text-red-700");
             feedbackContainer.classList.remove('hidden');
             nextButton.disabled = false;
             updateScoreDisplay();
@@ -367,18 +434,17 @@
         // --- Level 2 Logic (Auxiliary Conjugation) ---
 
         function loadLevel2Question(q) {
-            let subjectClean = q.subject.split('(')[0].trim();
+            let subjectClean = cleanSubject(q.subject);
             const subjectAux = auxConjugations[subjectClean];
             
             gameSentence.innerHTML = `
                 <span id="subjectDisplay">${q.subject}</span>
                 <span id="auxiliaryPlaceholder" class="inline-block w-20 h-8 bg-yellow-300 rounded-md animate-pulse font-bold text-indigo-600"></span>
                 <span class="font-normal"> ${q.participle}</span>
-                <span class="text-xs italic text-gray-500 ml-1">... ${q.verb}</span>
+                <span class="text-xs italic text-gray-500 ml-1">... (${q.verb})</span>
             `;
-            hintDisplay.textContent = `(Infinitive: ${q.verb}. Does it take Être or Avoir?)`;
+            hintDisplay.textContent = `(Infinitive: ${q.verb}. Does it take Être or Avoir? Conjugate it.)`;
 
-            // Generate choices: Correct Être and Correct Avoir for the subject
             const etreChoice = subjectAux.etre;
             const avoirChoice = subjectAux.avoir;
             const choices = shuffle([etreChoice, avoirChoice]);
@@ -395,11 +461,9 @@
 
         function checkLevel2Answer(question, selectedChoice, clickedButton) {
             Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
-            
             const isCorrect = selectedChoice === question.conjugation;
             totalQuestions++;
             
-            // Determine the wrong auxiliary type for feedback
             const wrongAux = question.aux === "Être" ? "Avoir" : "Être";
 
             const auxiliaryPlaceholder = document.getElementById('auxiliaryPlaceholder');
@@ -409,17 +473,15 @@
             if (isCorrect) {
                 score++;
                 feedbackTitle.textContent = "✅ C'est correct! Excellent choix.";
-                feedbackTitle.className = "font-bold text-lg mb-2 text-green-700";
                 feedbackContainer.classList.add('bg-green-100', 'border-green-500');
                 feedbackText.textContent = `The full conjugation is: ${question.subject} ${question.conjugation} ${question.participle}.`;
-                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. The correct present tense conjugation for the subject **${question.subject.split('(')[0].trim()}** is **'${question.conjugation}'**.`;
+                ruleText.innerHTML = `**Règle (The Rule):** The verb **${question.verb}** is **${question.aux === "Être" ? 'a Dr. Mrs. Vandelkamp verb (or reflexive), so it uses Être' : 'NOT a Dr. Mrs. Vandelkamp verb, so it uses Avoir'}**. The correct present tense conjugation for the subject **${cleanSubject(question.subject)}** is **'${question.conjugation}'**.`;
                 
                 clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
                 auxiliaryPlaceholder.classList.add('text-green-700');
 
             } else {
                 feedbackTitle.textContent = "❌ Incorrect. Revoyons le choix de l'auxiliaire.";
-                feedbackTitle.className = "font-bold text-lg mb-2 text-red-700";
                 feedbackContainer.classList.add('bg-red-100', 'border-red-500');
                 
                 feedbackText.textContent = `You chose '${selectedChoice}'. The correct auxiliary for **${question.verb}** is **${question.aux}**, which is conjugated as **'${question.conjugation}'**.`;
@@ -433,12 +495,139 @@
                 }
                 auxiliaryPlaceholder.classList.add('text-red-700');
             }
-            
+            feedbackTitle.className = "font-bold text-lg mb-2 " + (isCorrect ? "text-green-700" : "text-red-700");
             feedbackContainer.classList.remove('hidden');
             nextButton.disabled = false;
             updateScoreDisplay();
         }
 
+        // --- Level 3 Logic (Participle Formation) ---
+
+        function loadLevel3Question(q) {
+            gameSentence.innerHTML = `
+                <span class="text-indigo-600 font-bold">Infinitive: ${q.verb}</span>
+                <span class="text-2xl font-semibold text-gray-800 ml-4">Participle: </span>
+                <span id="participlePlaceholder" class="inline-block w-24 h-8 bg-yellow-300 rounded-md animate-pulse align-top font-bold text-gray-800"></span>
+            `;
+            hintDisplay.textContent = `(Form the Masculine Singular Past Participle.)`;
+
+            // Choices: correct + incorrect forms
+            let choices = shuffle([q.correct, ...q.incorrect]);
+
+            choices.forEach(choice => {
+                const button = document.createElement('button');
+                button.textContent = choice;
+                button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
+                button.onclick = () => checkLevel3Answer(q, choice, button);
+                button.dataset.choice = choice;
+                choicesContainer.appendChild(button);
+            });
+        }
+
+        function checkLevel3Answer(question, selectedChoice, clickedButton) {
+            Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
+            const isCorrect = selectedChoice === question.correct;
+            totalQuestions++;
+            
+            const participlePlaceholder = document.getElementById('participlePlaceholder');
+            participlePlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
+            participlePlaceholder.textContent = question.correct;
+
+            if (isCorrect) {
+                score++;
+                feedbackTitle.textContent = "✅ C'est correct! Vous maîtrisez la forme.";
+                feedbackContainer.classList.add('bg-green-100', 'border-green-500');
+                feedbackText.textContent = `The past participle of **${question.verb}** is **${question.correct}**.`;
+                ruleText.innerHTML = `**Règle (The Rule):** ${question.rule}`;
+                
+                clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
+                participlePlaceholder.classList.add('text-green-700');
+
+            } else {
+                feedbackTitle.textContent = "❌ Incorrect. Revoyons la formation.";
+                feedbackContainer.classList.add('bg-red-100', 'border-red-500');
+                
+                feedbackText.textContent = `You chose '${selectedChoice}'. The correct past participle of **${question.verb}** is **${question.correct}**.`;
+                ruleText.innerHTML = `**Règle (The Rule):** ${question.rule}`;
+
+                clickedButton.classList.add('bg-red-500', 'text-white');
+                const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.correct);
+                if (correctButton) {
+                    correctButton.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    correctButton.classList.add('bg-green-200', 'text-green-800', 'border-2', 'border-green-500');
+                }
+                participlePlaceholder.classList.add('text-red-700');
+            }
+            feedbackTitle.className = "font-bold text-lg mb-2 " + (isCorrect ? "text-green-700" : "text-red-700");
+            feedbackContainer.classList.remove('hidden');
+            nextButton.disabled = false;
+            updateScoreDisplay();
+        }
+
+        // --- Level 4 Logic (Tense Transformation) ---
+
+        function loadLevel4Question(q) {
+            gameSentence.innerHTML = `
+                <p class="text-sm font-semibold text-indigo-700 mb-2">Original Passé Composé Sentence:</p>
+                <span class="text-2xl font-semibold text-gray-800 italic">"${q.pcSentence}"</span>
+                <p class="text-sm font-semibold text-indigo-700 mt-4 mb-2">Translate the main verb to the Présent tense:</p>
+                <span id="subjectDisplay" class="text-2xl font-semibold text-gray-800">${cleanSubject(q.subject)}</span>
+                <span id="presentPlaceholder" class="inline-block w-24 h-8 bg-yellow-300 rounded-md animate-pulse align-top font-bold text-indigo-600"></span>
+                <span class="text-2xl font-semibold text-gray-800">...</span>
+            `;
+            hintDisplay.textContent = `(Infinitive: ${q.verb}. Conjugate it in the present tense for the subject ${cleanSubject(q.subject)}.)`;
+
+            let choices = shuffle([q.correctPresent, ...q.incorrect]);
+
+            choices.forEach(choice => {
+                const button = document.createElement('button');
+                button.textContent = choice;
+                button.className = 'p-3 bg-indigo-100 text-indigo-800 font-semibold rounded-lg hover:bg-indigo-200 transition duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-50';
+                button.onclick = () => checkLevel4Answer(q, choice, button);
+                button.dataset.choice = choice;
+                choicesContainer.appendChild(button);
+            });
+        }
+
+        function checkLevel4Answer(question, selectedChoice, clickedButton) {
+            Array.from(choicesContainer.children).forEach(btn => btn.disabled = true);
+            const isCorrect = selectedChoice === question.correctPresent;
+            totalQuestions++;
+            
+            const presentPlaceholder = document.getElementById('presentPlaceholder');
+            presentPlaceholder.classList.remove('bg-yellow-300', 'animate-pulse');
+            presentPlaceholder.textContent = question.correctPresent;
+
+            if (isCorrect) {
+                score++;
+                feedbackTitle.textContent = "✅ C'est correct! Excellente transformation.";
+                feedbackContainer.classList.add('bg-green-100', 'border-green-500');
+                feedbackText.textContent = `The original sentence **"${question.pcSentence}"** becomes **"${cleanSubject(question.subject)} ${question.correctPresent}..."** in the present tense.`;
+                ruleText.innerHTML = `**Règle (The Rule):** In the *Présent* tense, you only need the main verb **${question.verb}** conjugated for the subject **${cleanSubject(question.subject)}**. ${question.rule}`;
+                
+                clickedButton.classList.add('bg-green-500', 'text-white', 'hover:bg-green-600');
+                presentPlaceholder.classList.add('text-green-700');
+
+            } else {
+                feedbackTitle.textContent = "❌ Incorrect. Revoyons la conjugaison au présent.";
+                feedbackContainer.classList.add('bg-red-100', 'border-red-500');
+                
+                feedbackText.textContent = `You chose '${selectedChoice}'. The correct present tense conjugation for **${question.verb}** and **${cleanSubject(question.subject)}** is **'${question.correctPresent}'**.`;
+                ruleText.innerHTML = `**Règle (The Rule):** In the *Présent* tense, you only need the main verb **${question.verb}** conjugated for the subject **${cleanSubject(question.subject)}**. ${question.rule}`;
+
+                clickedButton.classList.add('bg-red-500', 'text-white');
+                const correctButton = Array.from(choicesContainer.children).find(btn => btn.dataset.choice === question.correctPresent);
+                if (correctButton) {
+                    correctButton.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    correctButton.classList.add('bg-green-200', 'text-green-800', 'border-2', 'border-green-500');
+                }
+                presentPlaceholder.classList.add('text-red-700');
+            }
+            feedbackTitle.className = "font-bold text-lg mb-2 " + (isCorrect ? "text-green-700" : "text-red-700");
+            feedbackContainer.classList.remove('hidden');
+            nextButton.disabled = false;
+            updateScoreDisplay();
+        }
 
         // --- General UI ---
 
@@ -447,11 +636,11 @@
         }
 
         // --- Initialization ---
-        // Ensure both question sets are shuffled on load
         shuffle(level1Questions); 
         shuffle(level2Questions);
+        shuffle(level3Questions); 
+        shuffle(level4Questions);
         
-        // Start the game in Level 1 mode
         updateGameModeUI();
         loadQuestion(level1Questions[0]); 
 
